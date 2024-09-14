@@ -1,0 +1,6 @@
+@GestionProveedores.Command.Api_HostAddress = http://localhost:5286
+
+GET {{GestionProveedores.Command.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

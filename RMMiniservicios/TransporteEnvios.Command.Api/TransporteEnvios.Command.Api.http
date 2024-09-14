@@ -1,0 +1,6 @@
+@TransporteEnvios.Command.Api_HostAddress = http://localhost:5240
+
+GET {{TransporteEnvios.Command.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
