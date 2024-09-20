@@ -1,6 +1,0 @@
-@TransporteEnvios.Query.Api_HostAddress = http://localhost:5064
-
-GET {{TransporteEnvios.Query.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

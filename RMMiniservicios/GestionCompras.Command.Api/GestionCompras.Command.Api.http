@@ -1,6 +1,0 @@
-@GestionCompras.Command.Api_HostAddress = http://localhost:5170
-
-GET {{GestionCompras.Command.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

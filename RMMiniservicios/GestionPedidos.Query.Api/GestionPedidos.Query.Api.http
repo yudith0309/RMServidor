@@ -1,6 +1,0 @@
-@GestionPedidos.Query.Api_HostAddress = http://localhost:5178
-
-GET {{GestionPedidos.Query.Api_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
