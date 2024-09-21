@@ -149,25 +149,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reportes.Interfaces", "Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransporteEnvios.Interfaces", "DataAccessLayer\RMCore.Interfaces\TransporteEnvios.Interfaces\TransporteEnvios.Interfaces.csproj", "{B2DDF618-B19B-4C88-A678-15DFE368DBA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia.Command", "Business Layer\RMApplication\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj", "{DE0638AC-6B9C-4D18-A517-A552DB8BA19E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Command", "Business Layer\RMApplication\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj", "{DE0638AC-6B9C-4D18-A517-A552DB8BA19E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia.Query", "Business Layer\RMApplication\RecepcionMercancia.Query\RecepcionMercancia.Query.csproj", "{68FB537F-BCB2-4426-919B-5F19636909F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Query", "Business Layer\RMApplication\RecepcionMercancia.Query\RecepcionMercancia.Query.csproj", "{68FB537F-BCB2-4426-919B-5F19636909F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia.Command.Interfaces", "Business Layer\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj", "{C8A913BC-9A07-4972-9FC9-83FE2EBD5A9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Command.Interfaces", "Business Layer\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj", "{C8A913BC-9A07-4972-9FC9-83FE2EBD5A9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia.Query.Interfaces", "Business Layer\RMApplication.Interfaces\RecepcionMercancia.Query.Interfaces\RecepcionMercancia.Query.Interfaces.csproj", "{2FD58B4E-6F5B-40C3-A397-3C419156B1E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Query.Interfaces", "Business Layer\RMApplication.Interfaces\RecepcionMercancia.Query.Interfaces\RecepcionMercancia.Query.Interfaces.csproj", "{2FD58B4E-6F5B-40C3-A397-3C419156B1E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia", "DataAccessLayer\RMCore\RecepcionMercancia\RecepcionMercancia.csproj", "{C0E0FD1A-4B7A-4713-A7CD-9D4D54AB2AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia", "DataAccessLayer\RMCore\RecepcionMercancia\RecepcionMercancia.csproj", "{C0E0FD1A-4B7A-4713-A7CD-9D4D54AB2AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia", "DataAccessLayer\RMCore.Interfaces\RecepcionMercancia\RecepcionMercancia.csproj", "{CBEE84A8-E5B5-4BB0-99ED-4D8D1187FE89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia", "DataAccessLayer\RMCore.Interfaces\RecepcionMercancia\RecepcionMercancia.csproj", "{CBEE84A8-E5B5-4BB0-99ED-4D8D1187FE89}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia", "DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.csproj", "{8D1151BA-6730-4225-997F-96F1BCF0C091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia", "DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.csproj", "{8D1151BA-6730-4225-997F-96F1BCF0C091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccesDataBase", "Infraestructure Layer\AccesDataBase\AccesDataBase.csproj", "{0E0C8980-698A-416C-98B8-349CFF78FE61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccesDataBase", "Infraestructure Layer\AccesDataBase\AccesDataBase.csproj", "{0E0C8980-698A-416C-98B8-349CFF78FE61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia.Command", "RMMiniservicios\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj", "{5E29E93F-6968-4514-B2D3-C86ECB9C131E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Command", "RMMiniservicios\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj", "{5E29E93F-6968-4514-B2D3-C86ECB9C131E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia.Query", "RMMiniservicios\TransporteEnvios.Query.Api\RecepcionMercancia.Query\RecepcionMercancia.Query.csproj", "{48D584B9-E713-4550-82D1-0A7F2AE3A52B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Query", "RMMiniservicios\TransporteEnvios.Query.Api\RecepcionMercancia.Query\RecepcionMercancia.Query.csproj", "{48D584B9-E713-4550-82D1-0A7F2AE3A52B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilidades", "Infraestructure Layer\Utilidades\Utilidades.csproj", "{44688A8D-0FF6-488E-BD85-11288B9FF002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -471,6 +473,10 @@ Global
 		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44688A8D-0FF6-488E-BD85-11288B9FF002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44688A8D-0FF6-488E-BD85-11288B9FF002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44688A8D-0FF6-488E-BD85-11288B9FF002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44688A8D-0FF6-488E-BD85-11288B9FF002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -555,6 +561,7 @@ Global
 		{0E0C8980-698A-416C-98B8-349CFF78FE61} = {593CAC19-51AE-4ABD-96D7-5DFF43BD08AD}
 		{5E29E93F-6968-4514-B2D3-C86ECB9C131E} = {0112D54E-EEB4-4DF1-A2FB-1DA90AA583AC}
 		{48D584B9-E713-4550-82D1-0A7F2AE3A52B} = {0112D54E-EEB4-4DF1-A2FB-1DA90AA583AC}
+		{44688A8D-0FF6-488E-BD85-11288B9FF002} = {593CAC19-51AE-4ABD-96D7-5DFF43BD08AD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5D6F12E-BDE2-4535-ADEE-73F50259473E}
