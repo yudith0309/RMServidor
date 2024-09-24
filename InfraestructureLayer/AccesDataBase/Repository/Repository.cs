@@ -1,48 +1,59 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RecepcionMercancia;
-using System.Linq.Expressions;
 
 namespace AccesDataBase.Repository;
 
-public class Repository<T> : IRepository<T> where T : class
+public class Repository : IRepository
 {
     private readonly ApplicationDbContext _context;
 
-    public async Task<T> ObtenerPorId(Expression<Func<T, bool>> condicion)
+    public Repository(ApplicationDbContext context)
     {
-        return await _context.Set<T>().FirstOrDefaultAsync(condicion);
-    }
-    public async Task<List<Producto>> ObtenerListado()
-    {
-        return await _context.Set<Producto>().ToListAsync(); 
-    }
-    public async Task<List<T>> ObtenerListaPorCondicion(Expression<Func<T, bool>> condicion)
-    {
-        return await _context.Set<T>().Where(condicion).ToListAsync();
-    }
-    public async Task Insertar(T entidad)
-    {
-        await _context.Set<T>().AddAsync(entidad);
-        await _context.SaveChangesAsync();
+        _context = context;
     }
 
-    public async Task EliminarEntidad(T entidad)
+    public T ObtenerPorId<T>(Guid id) where T : class
     {
-        _context.Set<T>().Remove(entidad);
-        await _context.SaveChangesAsync();
+        return _context.Set<T>()
+            .FindAsync(id) 
+            .GetAwaiter()
+            .GetResult();
     }
-    public async Task EliminarPorId<TKey>(TKey id)
+
+    public IEnumerable<T> ObtenerTodos<T>() where T : class
     {
-        var entidad = await _context.Set<T>().FindAsync(id);
-        if (entidad != null)
-        {
-            _context.Set<T>().Remove(entidad);
-            await _context.SaveChangesAsync();
-        }
+        return _context.Set<T>()
+            .ToListAsync()
+            .GetAwaiter()
+            .GetResult();
     }
-    public async Task Actualizar(T entidad)
+
+    public void Agregar<T>(T entidad) where T : class
+    {
+        _context.Set<T>()
+            .AddAsync(entidad)
+            .GetAwaiter()
+            .GetResult();
+
+        _context.SaveChangesAsync()
+            .GetAwaiter()
+            .GetResult();
+    }
+
+    public void Actualizar<T>(T entidad) where T : class
     {
         _context.Set<T>().Update(entidad);
-        await _context.SaveChangesAsync();
+
+        _context.SaveChangesAsync()
+            .GetAwaiter()
+            .GetResult();
+    }
+
+    public void Eliminar<T>(T entidad) where T : class
+    {
+        _context.Set<T>().Remove(entidad);
+
+        _context.SaveChangesAsync()
+            .GetAwaiter()
+            .GetResult();
     }
 }

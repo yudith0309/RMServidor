@@ -2,7 +2,7 @@
 
 public interface IProductoActor
 {
-    Task<List<Producto>> ObtenerTodosLosProductos();
-    void ProcesaInsertarpoducto(Producto producto);
-    void ActualizarProducto(Producto producto);
+    Producto ObtenerProductoPorId(Guid id);
+    void ProcesaInsertar(Producto producto);
+    void ProcesaActualizar(Producto producto);
 }

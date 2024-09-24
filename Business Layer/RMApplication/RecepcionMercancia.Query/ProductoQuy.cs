@@ -13,13 +13,4 @@ public class ProductoQuy: IProductoQuy
     {
         _gestorId = gestorId;
     }
-
-    /*public  ProductoMS DevuelveTodosProductos(ProductoME mensajeEntrada)
-    {
-        var producto =
-            _gestorId
-            .Resuelve<IProductoActor>().ObtenerTodosLosProductos();
-
-    return 
-    }*/
 }

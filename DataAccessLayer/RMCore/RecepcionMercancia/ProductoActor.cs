@@ -4,15 +4,14 @@ namespace RecepcionMercancia;
 
 public partial class ProductoActor: IProductoActor
 {
-    private readonly IRepository<Producto> _productoRepository;
+    private readonly IRepository _repository;
 
-    public ProductoActor(IRepository<Producto> productoRepository)
+    public ProductoActor(IRepository productoRepository)
     {
-        _productoRepository = productoRepository;
+        _repository = productoRepository;
     }
-    public async Task<List<Producto>> ObtenerTodosLosProductos()
+    public Producto ObtenerProductoPorId(Guid id)
     {
-        var productos = await _productoRepository.ObtenerListado();
-        return productos;
+        return _repository.ObtenerPorId<Producto>(id);
     }
 }

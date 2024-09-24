@@ -1,15 +1,10 @@
-﻿using RecepcionMercancia;
-using System.Linq.Expressions;
+﻿namespace AccesDataBase.Repository;
 
-namespace AccesDataBase.Repository;
-
-public interface IRepository<T>
+public interface IRepository
 {
-    Task<T> ObtenerPorId(Expression<Func<T, bool>> condicion);
-    Task<List<Producto>> ObtenerListado();
-    Task<List<T>> ObtenerListaPorCondicion(Expression<Func<T, bool>> condicion);
-    Task Insertar(T entidad);
-    Task EliminarEntidad(T entidad);
-    Task EliminarPorId<TKey>(TKey id);
-    Task Actualizar(T entidad);
+    T ObtenerPorId<T>(Guid id) where T : class;
+    IEnumerable<T> ObtenerTodos<T>() where T : class;
+    void Agregar<T>(T entidad) where T : class;
+    void Actualizar<T>(T entidad) where T : class;
+    void Eliminar<T>(T entidad) where T : class;
 }

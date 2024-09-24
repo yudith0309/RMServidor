@@ -2,13 +2,13 @@
 
 public partial class ProductoActor
 {
-    public void ProcesaInsertarpoducto(Producto producto)
+    public void ProcesaInsertar(Producto producto)
     {
-        _productoRepository.Insertar(producto);
+        _repository.Agregar(producto);
 
     }
-    public void ActualizarProducto(Producto producto)
+    public void ProcesaActualizar(Producto producto)
     {
-        _productoRepository.Actualizar(producto);
+        _repository.Actualizar(producto);
     }
 }
