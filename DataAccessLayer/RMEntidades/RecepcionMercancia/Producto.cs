@@ -10,7 +10,7 @@ public class Producto
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("ProductoID")]
-    public int ProductoID { get; set; }
+    public Guid ProductoID { get; set; }
 
     [Required]
     [MaxLength(100)]

@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\InfraestructureLayer\AccesDataBase\AccesDataBase.csproj" />
+    <ProjectReference Include="..\..\RMCore.Interfaces\RecepcionMercancia\RecepcionMercancia.Interfaces.csproj" />
+    <ProjectReference Include="..\..\RMEntidades\RecepcionMercancia\RecepcionMercancia.Entidad.csproj" />
+  </ItemGroup>
+
 </Project>

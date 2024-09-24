@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
+    <ProjectReference Include="..\..\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj" />
+    <ProjectReference Include="..\..\RMMensajeria\RMMensajeria.csproj" />
+  </ItemGroup>
+
 </Project>

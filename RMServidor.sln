@@ -159,9 +159,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Query.In
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia", "DataAccessLayer\RMCore\RecepcionMercancia\RecepcionMercancia.csproj", "{C0E0FD1A-4B7A-4713-A7CD-9D4D54AB2AFC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia", "DataAccessLayer\RMCore.Interfaces\RecepcionMercancia\RecepcionMercancia.csproj", "{CBEE84A8-E5B5-4BB0-99ED-4D8D1187FE89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Interfaces", "DataAccessLayer\RMCore.Interfaces\RecepcionMercancia\RecepcionMercancia.Interfaces.csproj", "{CBEE84A8-E5B5-4BB0-99ED-4D8D1187FE89}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia", "DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.csproj", "{8D1151BA-6730-4225-997F-96F1BCF0C091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Entidad", "DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.Entidad.csproj", "{8D1151BA-6730-4225-997F-96F1BCF0C091}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Command", "RMMiniservicios\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj", "{5E29E93F-6968-4514-B2D3-C86ECB9C131E}"
 EndProject

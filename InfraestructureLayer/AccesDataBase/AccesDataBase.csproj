@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.Entidad.csproj" />
   </ItemGroup>
 
 </Project>

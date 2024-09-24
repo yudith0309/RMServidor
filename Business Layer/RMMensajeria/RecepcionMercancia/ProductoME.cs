@@ -2,30 +2,24 @@
 
 public class ProductoME
 {
-    public int ProductID { get; set; }
+    public Guid ProductoID { get; set; }  
+    public string CodigoProducto { get; set; }  
+    public string NombreProducto { get; set; }  
+    public string Descripcion { get; set; }  
+    public string UnidadMedida { get; set; }  
+    public DateTime FechaCreacion { get; set; } 
+    public DateTime FechaActualizacion { get; set; }
 
-    public string ProductCode { get; set; }
+    public ProductoME()   { }
 
-    public string ProductName { get; set; }
-
-    public string Description { get; set; }
-
-    public string UnitOfMeasure { get; set; }
-
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-    public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
-
-    public ProductoME() { }
-
-    public ProductoME(int productID, string productCode, string productName, string description, string unitOfMeasure, DateTime createdAt, DateTime updatedAt)
+    public ProductoME(Guid productoID, string codigoProducto, string nombreProducto, string descripcion, string unidadMedida, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
-        ProductID = productID;
-        ProductCode = productCode;
-        ProductName = productName;
-        Description = description;
-        UnitOfMeasure = unitOfMeasure;
-        CreatedAt = createdAt;
-        UpdatedAt = updatedAt;
+        ProductoID = productoID;
+        CodigoProducto = codigoProducto;
+        NombreProducto = nombreProducto;
+        Descripcion = descripcion;
+        UnidadMedida = unidadMedida;
+        FechaCreacion = fechaCreacion;
+        FechaActualizacion = fechaActualizacion;
     }
 }

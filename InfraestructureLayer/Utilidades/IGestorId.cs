@@ -3,5 +3,5 @@
 public interface IGestorId
 {
     bool EsQuery { get; }
-    T GetValue<T>() where T : class;
+    T Resuelve<T>() where T : class;
 }
