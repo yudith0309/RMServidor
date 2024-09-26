@@ -1,37 +1,36 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RecepcionMercancia;
+namespace RecepcionMercancia.Entidad;
 
 [Table("Producto", Schema = "RecepcionMercancia")]
 public class Producto
 {
-
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    [Column("ProductoID")]
+    [Column("productoID")]
     public Guid ProductoID { get; set; }
 
     [Required]
     [MaxLength(100)]
-    [Column("CodigoProducto")]
+    [Column("codigoProducto")]
     public string CodigoProducto { get; set; }
 
     [Required]
     [MaxLength(255)]
-    [Column("NombreProducto")]
+    [Column("nombreProducto")]
     public string NombreProducto { get; set; }
 
-    [Column("Descripcion")]
+    [Column("descripcion")]
     public string Descripcion { get; set; }
 
     [MaxLength(50)]
-    [Column("UnidadMedida")]
+    [Column("unidadMedida")]
     public string UnidadMedida { get; set; }
 
-    [Column("FechaCreacion")]
+    [Column("fechaCreacion")]
     public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
-    [Column("FechaActualizacion")]
+    [Column("fechaActualizacion")]
     public DateTime FechaActualizacion { get; set; } = DateTime.UtcNow;
 
     public Producto(Guid productoID, string codigoProducto, string nombreProducto, string descripcion, string unidadMedida, DateTime fechaCreacion, DateTime fechaActualizacion)

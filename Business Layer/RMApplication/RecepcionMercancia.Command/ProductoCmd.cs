@@ -1,4 +1,5 @@
 ﻿using RecepcionMercancia;
+using RecepcionMercancia.Entidad;
 using RMMensajeria;
 using ServiciosCmd.Interfaces;
 using Utilidades;

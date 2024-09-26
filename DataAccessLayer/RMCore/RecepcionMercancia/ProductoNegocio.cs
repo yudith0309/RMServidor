@@ -1,4 +1,5 @@
-﻿using Utilidades;
+﻿using RecepcionMercancia.Entidad;
+using Utilidades;
 
 namespace RecepcionMercancia;
 
@@ -14,19 +15,19 @@ public partial class ProductoActor
         _repository.Agregar(producto);
 
     }
-    public Producto ProcesaActualizar(Guid producto, string codigo,string nombre,string descripcion,string um,DateTime fechaCreacion,DateTime fechaActualizacion)
+    public Producto ProcesaActualizar(Guid producto, string codigo, string nombre, string descripcion, string um, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
-        var nuevo = 
+        var nuevo =
             _repository
             .ObtenerPorId<Producto>(producto);
-            nuevo.ProductoID = producto;
-            nuevo.CodigoProducto = codigo;
-            nuevo.NombreProducto = nombre;
-            nuevo.UnidadMedida = um;
-            nuevo.FechaCreacion = fechaCreacion;
-            nuevo.FechaActualizacion = fechaActualizacion;
+        nuevo.ProductoID = producto;
+        nuevo.CodigoProducto = codigo;
+        nuevo.NombreProducto = nombre;
+        nuevo.UnidadMedida = um;
+        nuevo.FechaCreacion = fechaCreacion;
+        nuevo.FechaActualizacion = fechaActualizacion;
 
-      _gestorId.Resuelve<IProductoActor>().ProcesaInsertar(nuevo);
+        _gestorId.Resuelve<IProductoActor>().ProcesaInsertar(nuevo);
 
         return nuevo;
     }

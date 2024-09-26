@@ -1,4 +1,6 @@
-﻿namespace RecepcionMercancia;
+﻿using RecepcionMercancia.Entidad;
+
+namespace RecepcionMercancia;
 
 public interface IProductoActor
 {
