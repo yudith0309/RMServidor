@@ -33,4 +33,15 @@ public class Producto
     public DateTime FechaCreacion { get; set; } = DateTime.UtcNow;
     [Column("FechaActualizacion")]
     public DateTime FechaActualizacion { get; set; } = DateTime.UtcNow;
+
+    public Producto(Guid productoID, string codigoProducto, string nombreProducto, string descripcion, string unidadMedida, DateTime fechaCreacion, DateTime fechaActualizacion)
+    {
+        ProductoID = productoID;
+        CodigoProducto = codigoProducto;
+        NombreProducto = nombreProducto;
+        Descripcion = descripcion;
+        UnidadMedida = unidadMedida;
+        FechaCreacion = fechaCreacion;
+        FechaActualizacion = fechaActualizacion;
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace RecepcionMercancia;
 
-public partial class ProductoActor: IProductoActor
+public partial class ProductoActor : IProductoActor
 {
     private readonly IRepository _repository;
 
@@ -14,4 +14,11 @@ public partial class ProductoActor: IProductoActor
     {
         return _repository.ObtenerPorId<Producto>(id);
     }
+
+   /* public List<Producto> ObtenerListaProducto()
+    {
+        var listaProducto = new List<Producto>();
+        listaProducto = _repository.ObtenerTodos<Producto>();
+        return listaProducto;
+    }*/
 }

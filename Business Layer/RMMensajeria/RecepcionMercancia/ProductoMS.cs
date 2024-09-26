@@ -21,5 +21,16 @@ public class ProductoMS
         UnidadMedida = unidadMedida;
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
+    }   
+}
+
+public class ProductosMSLista
+{
+    public ProductosMSLista() { }
+
+    public ProductosMSLista(ProductoMS[] productoMS)
+    {
+        ProductoMS = productoMS;
     }
+    public ProductoMS[] ProductoMS { get; set; }
 }

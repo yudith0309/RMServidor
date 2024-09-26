@@ -1,6 +1,8 @@
-﻿namespace RecepcionMercancia.Query.Interfaces
+﻿using RMMensajeria;
+
+namespace Servicios.Interfaces;
+
+public interface IProductoQuy
 {
-    public interface IProductoQuy
-    {
-    }
+    ProductoMS DevuelveProducto(ProductoME mensajeEntrada);
 }

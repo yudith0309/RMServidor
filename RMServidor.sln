@@ -163,13 +163,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Interfac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Entidad", "DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.Entidad.csproj", "{8D1151BA-6730-4225-997F-96F1BCF0C091}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Command", "RMMiniservicios\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj", "{5E29E93F-6968-4514-B2D3-C86ECB9C131E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Query", "RMMiniservicios\TransporteEnvios.Query.Api\RecepcionMercancia.Query\RecepcionMercancia.Query.csproj", "{48D584B9-E713-4550-82D1-0A7F2AE3A52B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccesDataBase", "InfraestructureLayer\AccesDataBase\AccesDataBase.csproj", "{6FDF8275-FD03-4855-B538-FDB57D9A75DA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilidades", "InfraestructureLayer\Utilidades\Utilidades.csproj", "{2A1E53F9-9E5C-4425-9CCE-3A86DAACFEC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecepcionMercancia", "RMMiniservicios\RecepcionMercancia\RecepcionMercancia.csproj", "{1017E35A-6BFA-4D4C-A2A8-1BEBD2A20313}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -461,14 +459,6 @@ Global
 		{8D1151BA-6730-4225-997F-96F1BCF0C091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D1151BA-6730-4225-997F-96F1BCF0C091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D1151BA-6730-4225-997F-96F1BCF0C091}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E29E93F-6968-4514-B2D3-C86ECB9C131E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E29E93F-6968-4514-B2D3-C86ECB9C131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E29E93F-6968-4514-B2D3-C86ECB9C131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E29E93F-6968-4514-B2D3-C86ECB9C131E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48D584B9-E713-4550-82D1-0A7F2AE3A52B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6FDF8275-FD03-4855-B538-FDB57D9A75DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FDF8275-FD03-4855-B538-FDB57D9A75DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FDF8275-FD03-4855-B538-FDB57D9A75DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -477,6 +467,10 @@ Global
 		{2A1E53F9-9E5C-4425-9CCE-3A86DAACFEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A1E53F9-9E5C-4425-9CCE-3A86DAACFEC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A1E53F9-9E5C-4425-9CCE-3A86DAACFEC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1017E35A-6BFA-4D4C-A2A8-1BEBD2A20313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1017E35A-6BFA-4D4C-A2A8-1BEBD2A20313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1017E35A-6BFA-4D4C-A2A8-1BEBD2A20313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1017E35A-6BFA-4D4C-A2A8-1BEBD2A20313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -558,10 +552,9 @@ Global
 		{C0E0FD1A-4B7A-4713-A7CD-9D4D54AB2AFC} = {7FADEDC5-1EDF-486A-8B30-240B3EE5DE18}
 		{CBEE84A8-E5B5-4BB0-99ED-4D8D1187FE89} = {761D73E2-74B5-42C7-9A53-5BA43044BBCC}
 		{8D1151BA-6730-4225-997F-96F1BCF0C091} = {5669CC5D-D526-46FB-B8E0-4764190FD4C7}
-		{5E29E93F-6968-4514-B2D3-C86ECB9C131E} = {0112D54E-EEB4-4DF1-A2FB-1DA90AA583AC}
-		{48D584B9-E713-4550-82D1-0A7F2AE3A52B} = {0112D54E-EEB4-4DF1-A2FB-1DA90AA583AC}
 		{6FDF8275-FD03-4855-B538-FDB57D9A75DA} = {593CAC19-51AE-4ABD-96D7-5DFF43BD08AD}
 		{2A1E53F9-9E5C-4425-9CCE-3A86DAACFEC6} = {593CAC19-51AE-4ABD-96D7-5DFF43BD08AD}
+		{1017E35A-6BFA-4D4C-A2A8-1BEBD2A20313} = {0112D54E-EEB4-4DF1-A2FB-1DA90AA583AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5D6F12E-BDE2-4535-ADEE-73F50259473E}
