@@ -3,22 +3,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecepcionMercancia.Entidad;
 
-[Table("Items_recepcion", Schema = "RecepcionMercancia")]
+[Table("itemsRecepcion", Schema = "RecepcionMercancia")]
 public class ItemRecepcion
 {
     [Key]
-    [Column("recepccion_item_id")]
+    [Column("recepccionItemID")]
     public Guid RecepccionItemID { get; set; }  // Clave primaria
 
-    [Column("recepcion_id")]
+    [Column("recepcionID")]
     [Required]
     public Guid RecepcionID { get; set; }  // Clave foránea que referencia a Recepción
 
-    [Column("producto_id")]
+    [Column("productoID")]
     [Required]
     public Guid ProductoID { get; set; }  // Clave foránea que referencia a Producto
 
-    [Column("cantidad_recibida")]
+    [Column("cantidadRecibida")]
     [Required]
     public int CantidadRecibida { get; set; }  // Cantidad de producto recibido
 
@@ -28,14 +28,16 @@ public class ItemRecepcion
 
     [Column("comentarios")]
     public string Comentarios { get; set; }  // Comentarios adicionales
+    public ItemRecepcion()   {  }
 
-    public ItemRecepcion(Guid receptionItemID, Guid recepcionID, Guid productoID, int cantidadRecibida, string condicion, string comentarios)
+    // Constructor solo con propiedades mapeadas
+    public ItemRecepcion(Guid recepcionID, Guid productoID, int cantidadRecibida, string condicion, string comentarios)
     {
-        RecepccionItemID = receptionItemID;
         RecepcionID = recepcionID;
         ProductoID = productoID;
         CantidadRecibida = cantidadRecibida;
         Condicion = condicion;
         Comentarios = comentarios;
     }
+
 }

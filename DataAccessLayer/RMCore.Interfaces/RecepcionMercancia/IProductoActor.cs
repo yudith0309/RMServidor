@@ -1,6 +1,6 @@
 ﻿using RecepcionMercancia.Entidad;
 
-namespace RecepcionMercancia;
+namespace RecepcionMercancia.Interfaces;
 
 public interface IProductoActor
 {

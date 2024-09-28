@@ -1,10 +1,10 @@
-﻿using RecepcionMercancia;
+﻿using RecepcionMercancia.Command.Interfaces;
 using RecepcionMercancia.Entidad;
+using RecepcionMercancia.Interfaces;
 using RMMensajeria;
-using ServiciosCmd.Interfaces;
 using Utilidades;
 
-namespace Servicios;
+namespace RecepcionMercancia.Command;
 
 public class ProductoCmd : IProductoCmd
 {

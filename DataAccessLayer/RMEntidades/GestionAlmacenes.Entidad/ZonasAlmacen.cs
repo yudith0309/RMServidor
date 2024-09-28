@@ -9,35 +9,35 @@ namespace GestionAlmacenes.Entidad;
 public class ZonasAlmacen
 {
     [Key]
-    [Column("ZonaID")]
-    public int ZonaID { get; set; }  // Clave primaria de la zona dentro del almacén
+    [Column("zonaID")]
+    public Guid ZonaID { get; set; }  // Clave primaria de la zona dentro del almacén
 
-    [Column("AlmacenID")]
+    [Column("almacenID")]
     [Required]
-    public int AlmacenID { get; set; }  // Clave foránea que referencia a la tabla Almacenes
+    public Guid AlmacenID { get; set; }  // Clave foránea que referencia a la tabla Almacenes
 
-    [Column("NombreZona")]
+    [Column("nombreZona")]
     [Required]
     [StringLength(100)]
     public string NombreZona { get; set; }  // Nombre de la zona
 
-    [Column("TipoZona")]
+    [Column("tipoZona")]
     [Required]
     [StringLength(50)]
     public string TipoZona { get; set; }  // Tipo de zona (ej. recepción, despacho, almacenamiento)
 
-    [Column("CapacidadZona")]
+    [Column("capacidadZona")]
     [Required]
     [Precision(18, 2)]
     public decimal CapacidadZona { get; set; }  // Capacidad total de la zona
 
-    [Column("FechaCreacion")]
+    [Column("fechaCreacion")]
     public DateTime FechaCreacion { get; set; }  // Fecha de creación de la zona
 
-    [Column("FechaActualizacion")]
+    [Column("fechaActualizacion")]
     public DateTime FechaActualizacion { get; set; }  // Fecha de la última actualización de la zona
 
-    public ZonasAlmacen(int zonaID, int almacenID, string nombreZona, string tipoZona, decimal capacidadZona, DateTime fechaCreacion, DateTime fechaActualizacion)
+    public ZonasAlmacen(Guid zonaID, Guid almacenID, string nombreZona, string tipoZona, decimal capacidadZona, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
         ZonaID = zonaID;
         AlmacenID = almacenID;
@@ -46,5 +46,9 @@ public class ZonasAlmacen
         CapacidadZona = capacidadZona;
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
+    }
+
+    public ZonasAlmacen()
+    {
     }
 }

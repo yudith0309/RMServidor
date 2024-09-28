@@ -14,7 +14,7 @@ public class Repository : IRepository
     public T ObtenerPorId<T>(Guid id) where T : class
     {
         return _context.Set<T>()
-            .FindAsync(id) 
+            .FindAsync(id)
             .GetAwaiter()
             .GetResult();
     }

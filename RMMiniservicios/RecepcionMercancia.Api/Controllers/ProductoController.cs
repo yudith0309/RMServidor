@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿namespace RecepcionMercancia.Api.Controllers;
+using Microsoft.AspNetCore.Mvc;
+using RecepcionMercancia.Command.Interfaces;
+using RecepcionMercancia.Query.Interfaces;
 using RMMensajeria;
-using Servicios.Interfaces;
-using ServiciosCmd.Interfaces;
 using System.Net;
-
-namespace RecepcionMercancia.Controllers;
 
 [ApiController]
 [Route("[controller]/[action]")]
@@ -13,13 +12,10 @@ public class ProductoController : Controller
     private readonly IProductoQuy _servicio;
     private readonly IProductoCmd _servicioCmd;
 
-    public ProductoController(
-        IProductoQuy servicio,
-        IProductoCmd servicioCmd 
-    )
+    public ProductoController(IProductoQuy servicio, IProductoCmd servicioCmd)
     {
         _servicio = servicio;
-        _servicioCmd = servicioCmd; 
+        _servicioCmd = servicioCmd;
     }
 
     // Métodos Query

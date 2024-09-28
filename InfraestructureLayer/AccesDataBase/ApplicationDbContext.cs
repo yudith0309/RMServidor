@@ -46,7 +46,7 @@ public class ApplicationDbContext : DbContext
         modelBuilder
             .Entity<OrdenDeCompra>()
             .ToTable("OrdenDeCompra");
-            
+
         //Item Orden de compra
 
         modelBuilder
@@ -85,7 +85,7 @@ public class ApplicationDbContext : DbContext
         //Item Recepcion 
         modelBuilder
             .Entity<ItemRecepcion>()
-            .ToTable("Items_recepcion");
+            .ToTable("itemsRecepcion");
 
         modelBuilder
             .Entity<ItemRecepcion>()
@@ -110,11 +110,17 @@ public class ApplicationDbContext : DbContext
         modelBuilder
             .Entity<Inventario>()
             .ToTable("Inventarios");
+
         modelBuilder.Entity<MovimientoInventario>()
             .HasOne<Producto>()
             .WithMany()
             .HasForeignKey(m => m.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);
+
+        //Movimientos Inventarios 
+        modelBuilder
+            .Entity<MovimientoInventario>()
+            .ToTable("MovimientosInventario");
 
         modelBuilder.Entity<MovimientoInventario>()
             .HasOne<Almacen>()
@@ -136,7 +142,7 @@ public class ApplicationDbContext : DbContext
         //Movimientos Almacen 
         modelBuilder
            .Entity<MovimientosAlmacen>()
-           .ToTable("Movimientos_almacen");
+           .ToTable("movimientosAlmacen");
 
         modelBuilder.Entity<MovimientosAlmacen>()
             .HasOne<Producto>()  // Asumiendo que tienes una entidad Producto

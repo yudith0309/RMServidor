@@ -1,10 +1,9 @@
-﻿using RecepcionMercancia;
+﻿using RecepcionMercancia.Interfaces;
+using RecepcionMercancia.Query.Interfaces;
 using RMMensajeria;
-using Servicios.Interfaces;
 using Utilidades;
 
-
-namespace Servicios.RecepcionMercancia;
+namespace RecepcionMercancia.Query;
 
 public class ProductoQuy : IProductoQuy
 {

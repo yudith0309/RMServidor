@@ -1,6 +1,6 @@
 ﻿using RMMensajeria;
 
-namespace ServiciosCmd.Interfaces;
+namespace RecepcionMercancia.Command.Interfaces;
 
 public interface IProductoCmd
 {

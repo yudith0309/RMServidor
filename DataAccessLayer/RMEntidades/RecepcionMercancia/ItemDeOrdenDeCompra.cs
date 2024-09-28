@@ -7,10 +7,10 @@ namespace RecepcionMercancia.Entidad;
 public class ItemDeOrdenDeCompra
 {
     [Key]
-    [Column("item_de_orden_de_compra_id")]
+    [Column("itemDeOrdenDeCompraID")]
     public Guid ItemDeOrdenDeCompraID { get; set; }  // Clave primaria
 
-    [Column("orden_de_compra_id")]
+    [Column("ordenDeCompraID")]
     [Required]  
     public Guid OrdenDeCompraID { get; set; }  // Clave foránea que referencia a Orden de Compra
 
@@ -36,14 +36,12 @@ public class ItemDeOrdenDeCompra
     [ForeignKey("ProductoID")]
     public Producto Producto { get; set; }  // Navegación a la entidad Producto
 
-    public ItemDeOrdenDeCompra(Guid itemDeOrdenDeCompraID, Guid ordenDeCompraID, Guid productoID, int cantidadOrdenada, decimal precioUnitario, OrdenDeCompra ordenDeCompra, Producto producto)
+    public ItemDeOrdenDeCompra(Guid itemDeOrdenDeCompraID, Guid ordenDeCompraID, Guid productoID, int cantidadOrdenada, decimal precioUnitario)
     {
         ItemDeOrdenDeCompraID = itemDeOrdenDeCompraID;
         OrdenDeCompraID = ordenDeCompraID;
         ProductoID = productoID;
         CantidadOrdenada = cantidadOrdenada;
         PrecioUnitario = precioUnitario;
-        OrdenDeCompra = ordenDeCompra;
-        Producto = producto;
     }
 }

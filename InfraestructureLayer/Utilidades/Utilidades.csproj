@@ -1,9 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Business Layer\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj" />
+		<ProjectReference Include="..\..\Business Layer\RMApplication.Interfaces\RecepcionMercancia.Query.Interfaces\RecepcionMercancia.Query.Interfaces.csproj" />
+		<ProjectReference Include="..\..\DataAccessLayer\RMCore.Interfaces\RecepcionMercancia\RecepcionMercancia.Interfaces.csproj" />
+		<ProjectReference Include="..\AccesDataBase\AccesDataBase.csproj" />
+	</ItemGroup>
 
 </Project>

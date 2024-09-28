@@ -8,37 +8,40 @@ namespace GestionAlmacenes.Entidad;
 public class Ubicacion
 {
     [Key]
-    [Column("UbicacionID")]
-    public int UbicacionID { get; set; }  // Clave primaria de la ubicación dentro del almacén
+    [Column("ubicacionID")]
+    public Guid UbicacionID { get; set; }  // Clave primaria de la ubicación dentro del almacén
 
-    [Column("AlmacenID")]
+    [Column("almacenID")]
     [Required]
-    public int AlmacenID { get; set; }  // Clave foránea que referencia a la tabla Almacenes
+    public Guid AlmacenID { get; set; }  // Clave foránea que referencia a la tabla Almacenes
 
-    [Column("CodigoUbicacion")]
+    [Column("codigoUbicacion")]
     [Required]
     [StringLength(50)]
     public string CodigoUbicacion { get; set; }  // Código único que identifica la ubicación
 
-    [Column("TipoUbicacion")]
+    [Column("tipoUbicacion")]
     [Required]
     [StringLength(50)]
     public string TipoUbicacion { get; set; }  // Tipo de ubicación: picking, almacenamiento, zona de devoluciones
 
-    [Column("CapacidadUbicacion")]
+    [Column("capacidadUbicacion")]
     [Precision(18, 2)]
     public decimal CapacidadUbicacion { get; set; }  // Capacidad máxima de la ubicación
 
-    [Column("Ocupado")]
+    [Column("ocupado")]
     public bool Ocupado { get; set; }  // Indica si la ubicación está ocupada
 
-    [Column("FechaCreacion")]
+    [Column("fechaCreacion")]
     public DateTime FechaCreacion { get; set; }  // Fecha de creación de la ubicación
 
-    [Column("FechaActualizacion")]
+    [Column("fechaActualizacion")]
     public DateTime FechaActualizacion { get; set; }  // Fecha de la última actualización de la ubicación
 
-    public Ubicacion(int ubicacionID, int almacenID, string codigoUbicacion, string tipoUbicacion, decimal capacidadUbicacion, bool ocupado, DateTime fechaCreacion, DateTime fechaActualizacion)
+    public Ubicacion()
+    {
+    }
+    public Ubicacion(Guid ubicacionID, Guid almacenID, string codigoUbicacion, string tipoUbicacion, decimal capacidadUbicacion, bool ocupado, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
         UbicacionID = ubicacionID;
         AlmacenID = almacenID;
@@ -49,4 +52,6 @@ public class Ubicacion
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
     }
+
+
 }

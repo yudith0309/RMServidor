@@ -12,8 +12,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Business Layer\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Business Layer\RMApplication.Interfaces\RecepcionMercancia.Query.Interfaces\RecepcionMercancia.Query.Interfaces.csproj" />
     <ProjectReference Include="..\..\Business Layer\RMApplication\RecepcionMercancia.Command\RecepcionMercancia.Command.csproj" />
     <ProjectReference Include="..\..\Business Layer\RMApplication\RecepcionMercancia.Query\RecepcionMercancia.Query.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\RMCore\RecepcionMercancia\RecepcionMercancia.csproj" />
+    <ProjectReference Include="..\..\InfraestructureLayer\ConfiguracionServicios\ConfiguracionServicios.csproj" />
+    <ProjectReference Include="..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
   </ItemGroup>
 
 </Project>

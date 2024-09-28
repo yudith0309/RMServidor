@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Business Layer\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionAlmacenes.Entidad\GestionAlmacenes.Entidad.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionInventarios.Entidad\GestionInventarios.Entidad.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionPedidos.Entidad\GestionPedidos.Entidad.csproj" />
