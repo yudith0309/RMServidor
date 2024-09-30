@@ -33,4 +33,19 @@ public class SeguimientoEnvio
 
     [Column("fechaActualizacion")]
     public DateTime FechaActualizacion { get; set; } = DateTime.Now;  // Fecha de última actualización
+
+    public SeguimientoEnvio(Guid seguimientoID, Guid ordenEnvioID, DateTime fechaRegistro, string estado, string ubicacionActual, string comentarios, DateTime fechaCreacion, DateTime fechaActualizacion)
+    {
+        SeguimientoID = seguimientoID;
+        OrdenEnvioID = ordenEnvioID;
+        FechaRegistro = fechaRegistro;
+        Estado = estado;
+        UbicacionActual = ubicacionActual;
+        Comentarios = comentarios;
+        FechaCreacion = fechaCreacion;
+        FechaActualizacion = fechaActualizacion;
+    }
+    public SeguimientoEnvio()
+    {
+    }
 }

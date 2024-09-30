@@ -20,10 +20,10 @@ public partial class ProductoActor : IProductoActor
         return _repository.ObtenerPorId<Producto>(id);
     }
 
-    /* public List<Producto> ObtenerListaProducto()
-     {
-         var listaProducto = new List<Producto>();
-         listaProducto = _repository.ObtenerTodos<Producto>();
-         return listaProducto;
-     }*/
+    public List<Producto> ObtenerListaProducto()
+    {
+        var listaProducto = new List<Producto>();
+        listaProducto = _repository.ObtenerTodos<Producto>();
+        return listaProducto;
+    }
 }

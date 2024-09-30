@@ -26,9 +26,6 @@ public class ItemDeOrdenDeCompra
     [Required]
     public decimal PrecioUnitario { get; set; }  // Precio unitario del producto
 
-    [Column("precio_total")]
-    public decimal PrecioTotal => CantidadOrdenada * PrecioUnitario;  // Precio total calculado
-
     public ItemDeOrdenDeCompra(Guid itemDeOrdenDeCompraID, Guid ordenDeCompraID, Guid productoID, int cantidadOrdenada, decimal precioUnitario)
     {
         ItemDeOrdenDeCompraID = itemDeOrdenDeCompraID;

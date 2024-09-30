@@ -8,13 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Automatizacion\" />
-    <Folder Include="GestionAlmacenes\" />
-    <Folder Include="GestionCompras\" />
-    <Folder Include="GestionDevoluciones\" />
-    <Folder Include="GestionInventarios\" />
-    <Folder Include="GestionPedidos\" />
-    <Folder Include="GestionProveedores\" />
-    <Folder Include="TransporteEnvios\" />
     <Folder Include="Reportes\" />
   </ItemGroup>
 

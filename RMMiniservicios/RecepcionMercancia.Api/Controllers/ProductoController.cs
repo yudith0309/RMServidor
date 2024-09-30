@@ -27,6 +27,14 @@ public class ProductoController : Controller
         return Ok(respuesta);
     }
 
+    /*[HttpPost(Name = "ObtenerListaProducto")]
+    [ProducesResponseType(typeof(ProductoMS), (int)HttpStatusCode.OK)]
+    public IActionResult ObtenerListaProducto([FromBody] ProductoME mensajeEntrada)
+    {
+        var respuesta = _servicio.ObtenerListaProducto(mensajeEntrada);
+        return Ok(respuesta);
+    }*/
+
     // Métodos Command
     [HttpPost(Name = "NuevoProducto")]
     [ProducesResponseType(typeof(ProductoMS), (int)HttpStatusCode.OK)]

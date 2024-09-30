@@ -19,12 +19,12 @@ public class Repository : IRepository
             .GetResult();
     }
 
-    public IEnumerable<T> ObtenerTodos<T>() where T : class
+    public List<T> ObtenerTodos<T>() where T : class
     {
         return _context.Set<T>()
             .ToListAsync()
             .GetAwaiter()
-            .GetResult();
+            .GetResult().ToList();
     }
 
     public void Agregar<T>(T entidad) where T : class

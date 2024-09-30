@@ -169,7 +169,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utilidades", "Infraestructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecepcionMercancia.Api", "RMMiniservicios\RecepcionMercancia.Api\RecepcionMercancia.Api.csproj", "{2FD7F2DC-E700-4B71-B559-EEC89384C8A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfiguracionServicios", "InfraestructureLayer\ConfiguracionServicios\ConfiguracionServicios.csproj", "{C97EE3E3-6AA1-4AEC-BF4C-A38DD939579A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfiguracionServicios", "InfraestructureLayer\ConfiguracionServicios\ConfiguracionServicios.csproj", "{C97EE3E3-6AA1-4AEC-BF4C-A38DD939579A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
