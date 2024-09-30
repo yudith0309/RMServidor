@@ -9,4 +9,10 @@ public static class Extensiones
             primera.AddRange(segunda);
         }
     }
+
+    // Método de extensión genérico para transformar una lista y devolver una nueva lista
+    public static List<TOutput> Transformar<TInput, TOutput>(this IEnumerable<TInput> lista, Func<TInput, TOutput> transformacion)
+    {
+        return lista.Select(transformacion).ToList();
+    }
 }

@@ -27,4 +27,22 @@ public class ProductoQuy : IProductoQuy
             FechaActualizacion = salida.FechaActualizacion
         };
     }
+
+    public ProductosMSLista DevuelveTodosProductos(ProductoME mensajeEntrada)
+    {
+        var lista = _gestorId.Resuelve<IProductoActor>().ObtenerListaProducto();
+        var listaMS =
+            lista
+            .Transformar(producto =>
+            new ProductoMS(producto.ProductoID,
+                           producto.CodigoProducto,
+                           producto.NombreProducto,
+                           producto.Descripcion,
+                           producto.UnidadMedida,
+                           producto.FechaCreacion,
+                           producto.FechaActualizacion));
+
+        return new ProductosMSLista(listaMS.ToArray());
+
+    }
 }

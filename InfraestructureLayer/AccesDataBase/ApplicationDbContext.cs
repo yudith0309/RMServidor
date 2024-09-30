@@ -12,56 +12,75 @@ namespace AccesDataBase;
 
 public class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
     }
-    public DbSet<Producto> Producto { get; set; }
-    public DbSet<Proveedor> Proveedores { get; set; }
-    public DbSet<ItemDeOrdenDeCompra> ItemsDeOrdenDeCompra { get; set; }
-    public DbSet<Recepcion> Recepciones { get; set; }
-    public DbSet<ItemRecepcion> ItemsRecepcion { get; set; }
+    //Gestion de Almacenes Tablas 
     public DbSet<Almacen> Almacenes { get; set; }
-    public DbSet<Inventario> Inventarios { get; set; }
-    public DbSet<MovimientoInventario> MovimientosInventario { get; set; }
-    public DbSet<Ubicacion> Ubicaciones { get; set; }
     public DbSet<MovimientosAlmacen> MovimientosAlmacen { get; set; }
-    public DbSet<InventarioUbicaciones> InventarioUbicaciones { get; set; }
-    public DbSet<ZonasAlmacen> ZonasAlmacen { get; set; }
     public DbSet<OrdenesTransferenciaInterna> OrdenesTransferenciaInterna { get; set; }
-    public DbSet<Pedido> Pedidos { get; set; }
-    public DbSet<Cliente> Clientes { get; set; }
-    public DbSet<DetallesPedido> DetallesPedidos { get; set; }
-    public DbSet<Devoluciones> Devoluciones { get; set; }
-    public DbSet<HistorialEstadoPedido> HistorialEstadoPedido { get; set; }
+    public DbSet<Ubicacion> Ubicaciones { get; set; }
+    public DbSet<ZonasAlmacen> ZonasAlmacen { get; set; }
+
+    //Gestion de compras tablas 
+    public DbSet<DetallesOrdenCompra> DetallesOrdenCompra { get; set; }
+    public DbSet<ItemDeOrdenDeCompra> ItemsDeOrdenDeCompra { get; set; }
+    public DbSet<OrdenesCompra> OrdenesCompra { get; set; }
+
+    //Gestion de devoluciones tablas 
     public DbSet<DetallesDevolucion> DetallesDevolucion { get; set; }
+    public DbSet<Devoluciones> Devoluciones { get; set; }
     public DbSet<HistorialEstadoDevolucion> HistorialEstadoDevolucion { get; set; }
     public DbSet<PagosDevoluciones> PagosDevoluciones { get; set; }
-    public DbSet<OrdenesCompra> OrdenesCompra { get; set; }
-    public DbSet<PagosProveedores> PagosProveedores { get; set; }
+
+    //Gestion de inventarios tablas 
+    public DbSet<Inventario> Inventarios { get; set; }
+    public DbSet<InventarioUbicaciones> InventarioUbicaciones { get; set; }
+    public DbSet<MovimientoInventario> MovimientosInventario { get; set; }
+
+    //Gestion de pedidos 
+    public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<DetallesPedido> DetallesPedidos { get; set; }
+    public DbSet<HistorialEstadoPedido> HistorialEstadoPedido { get; set; }
+    public DbSet<Pagos> Pagos { get; set; }
+    public DbSet<Pedido> Pedidos { get; set; }
+
+    //Gestion de proveedores tabla 
     public DbSet<HistorialProveedor> HistorialProveedores { get; set; }
+    public DbSet<PagosProveedores> PagosProveedores { get; set; }
+    public DbSet<Proveedor> Proveedores { get; set; }
+
+    //Recepcion de mercancia tablas 
+    public DbSet<ItemRecepcion> ItemsRecepcion { get; set; }
+    public DbSet<Producto> Producto { get; set; }
+    public DbSet<Recepcion> Recepciones { get; set; }
+
+    //Transporte y env'io tablas 
     public DbSet<OrdenesEnvio> OrdenesEnvios { get; set; }
     public DbSet<Transportista> Transportistas { get; set; }
     public DbSet<SeguimientoEnvio> SeguimientoEnvios { get; set; }
     public DbSet<CostosEnvio> CostosEnvios { get; set; }
     public DbSet<DocumentacionEnvio> DocumentacionesEnvio { get; set; }
+    public DbSet<Ruta> Ruta { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        //Tabla Producto 
+        //Tabla Producto --------------------------------------------
         modelBuilder
             .Entity<Producto>()
             .ToTable("Producto")
             .HasKey(p => p.ProductoID);
 
-        //Tabla Provedor 
+        //Tabla Provedor --------------------------------------------
         modelBuilder
             .Entity<Proveedor>()
             .ToTable("Proveedor")
             .HasKey(p => p.ProveedorID);
 
-        //Tabla OrdenDeCompra 
+        //Tabla OrdenDeCompra ----------------------------------------
         modelBuilder
             .Entity<OrdenesCompra>()
             .ToTable("OrdenesCompra")
@@ -74,7 +93,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.ProveedorID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Item Orden de compra
+        //Tabla Item Orden de compra------------------------------------------
         modelBuilder
             .Entity<ItemDeOrdenDeCompra>()
             .ToTable("ItemDeOrdenDeCompra")
@@ -95,7 +114,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Recepcion 
+        //Tabla Recepcion ------------------------------------------
         modelBuilder
             .Entity<Recepcion>()
             .ToTable("Recepciones")
@@ -115,7 +134,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(r => r.OrdenDeCompraID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        //Tabla Item Recepcion 
+        //Tabla Item Recepcion -------------------------------------------------
         modelBuilder
             .Entity<ItemRecepcion>()
             .ToTable("ItemsRecepcion")
@@ -135,13 +154,13 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(ir => ir.ProductoID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        //Tabla Almacen
+        //Tabla Almacen  -----------------------------------------------
         modelBuilder
             .Entity<Almacen>()
             .ToTable("Almacenes")
             .HasKey(p => p.AlmacenID);
 
-        //Tabla Inventario 
+        //Tabla Inventario ----------------------------------------------
         modelBuilder
             .Entity<Inventario>()
             .ToTable("Inventarios")
@@ -157,9 +176,9 @@ public class ApplicationDbContext : DbContext
             .HasOne<Producto>()
             .WithMany()
             .HasForeignKey(ir => ir.ProductoID)
-            .OnDelete(DeleteBehavior.Cascade);        
+            .OnDelete(DeleteBehavior.Cascade);
 
-        //Tabla Movimientos Inventarios 
+        //Tabla Movimientos Inventarios ------------------------------------
         modelBuilder
             .Entity<MovimientoInventario>()
             .ToTable("MovimientosInventario")
@@ -179,7 +198,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(m => m.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        //Tabla Ubicacion 
+        //Tabla Ubicacion ---------------------------------------------------
         modelBuilder
             .Entity<Ubicacion>()
             .ToTable("Ubicaciones")
@@ -192,7 +211,7 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(u => u.AlmacenID)
            .OnDelete(DeleteBehavior.Cascade);
 
-        //Tabla Movimientos Almacen 
+        //Tabla Movimientos Almacen ------------------------------------------------
         modelBuilder
            .Entity<MovimientosAlmacen>()
            .ToTable("movimientosAlmacen")
@@ -217,7 +236,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(m => m.UbicacionDestinoID)
             .OnDelete(DeleteBehavior.Restrict);  // Configurar comportamiento en eliminación
 
-        //Tabla Inventarios Ubicacion
+        //Tabla Inventarios Ubicacion ---------------------------------------------
         modelBuilder
              .Entity<InventarioUbicaciones>()
              .ToTable("InventarioUbicaciones")
@@ -237,7 +256,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(i => i.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        //Tabla Zona Almacen 
+        //Tabla Zona Almacen -----------------------------------------
         modelBuilder
             .Entity<ZonasAlmacen>()
             .ToTable("ZonasAlmacen")
@@ -250,7 +269,7 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(z => z.AlmacenID)
            .OnDelete(DeleteBehavior.Restrict);
 
-        //Tabla OrdenesTransferencia Interna
+        //Tabla OrdenesTransferencia Interna ---------------------------------------------
         modelBuilder
             .Entity<OrdenesTransferenciaInterna>()
             .ToTable("OrdenesTransferenciaInterna")
@@ -277,7 +296,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(o => o.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        //Tabla Pedido 
+        //Tabla Pedido  ----------------------------------------------------
         modelBuilder
             .Entity<Pedido>()
             .ToTable("Pedido")
@@ -290,19 +309,19 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(p => p.ClienteID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Cliente 
+        //Tabla Cliente -----------------------------------------------------
         modelBuilder
            .Entity<Cliente>()
            .ToTable("Cliente")
-           .HasKey(p => p.ClienteID);       
+           .HasKey(p => p.ClienteID);
 
-        //Tabla Detalles Pedido 
+        //Tabla Detalles Pedido --------------------------------------------
         modelBuilder
             .Entity<DetallesPedido>()
             .ToTable("DetallesPedido")
             .HasKey(p => p.DetalleID);
 
-        //Tabla Relaciones
+        //Relaciones 
         modelBuilder
             .Entity<DetallesPedido>()
             .HasOne<Producto>()  // Relación con la tabla Producto
@@ -317,7 +336,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.PedidoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla pagos 
+        //Tabla pagos ------------------------------------------------------
 
         modelBuilder
             .Entity<Pagos>()
@@ -331,7 +350,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.PedidoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Devoluciones 
+        //Tabla Devoluciones ---------------------------------------------------
         modelBuilder
             .Entity<Devoluciones>()
             .ToTable("Devoluciones")
@@ -344,7 +363,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.PedidoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Historial de devoluciones 
+        //Tabla Historial de devoluciones -----------------------------------------
         modelBuilder
             .Entity<HistorialEstadoPedido>()
             .ToTable("HistorialEstadoPedido")
@@ -357,7 +376,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.PedidoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Detalles de devolucion 
+        //Tabla Detalles de devolucion ------------------------------------------------
 
         modelBuilder
            .Entity<DetallesDevolucion>()
@@ -378,7 +397,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.DevolucionID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla HistorialEstadoDevolucion
+        //Tabla HistorialEstadoDevolucion ----------------------------------------------
         modelBuilder
           .Entity<HistorialEstadoDevolucion>()
           .ToTable("HistorialEstadoDevolucion")
@@ -391,7 +410,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.DevolucionID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Pagos Devoluciones 
+        //Tabla Pagos Devoluciones ------------------------------------------------
         modelBuilder
           .Entity<PagosDevoluciones>()
           .ToTable("PagosDevoluciones")
@@ -404,7 +423,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.DevolucionID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Detalles Orden de Compras 
+        //Tabla Detalles Orden de Compras ---------------------------------------------
         modelBuilder
           .Entity<DetallesOrdenCompra>()
           .ToTable("DetallesOrdenCompra")
@@ -424,7 +443,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Detalles Pago a proveedores
+        //Tabla Detalles Pago a proveedores  ---------------------------------------
         modelBuilder
           .Entity<PagosProveedores>()
           .ToTable("PagosProveedores")
@@ -437,7 +456,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.ProveedorID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Detalles Historial de proveedores
+        //Tabla Detalles Historial de proveedores ------------------------------------
         modelBuilder
           .Entity<HistorialProveedor>()
           .ToTable("HistorialProveedor")
@@ -450,7 +469,7 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(p => p.ProveedorID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Ordenes de Envio
+        //Tabla Ordenes de Envio -----------------------------------------------------
         modelBuilder
           .Entity<OrdenesEnvio>()
           .ToTable("OrdenesEnvio")
@@ -470,13 +489,13 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(p => p.TransportistaID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Transportista
+        //Tabla Transportista -----------------------------------------------
         modelBuilder
           .Entity<Transportista>()
           .ToTable("Transportista")
           .HasKey(p => p.TransportistaID);
 
-        //Tabla Rutas
+        //Tabla Rutas ------------------------------------------------------
         modelBuilder
           .Entity<Ruta>()
           .ToTable("Ruta")
@@ -489,7 +508,7 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(p => p.OrdenEnvioID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla SeguimientoEnvio 
+        //Tabla SeguimientoEnvio  -------------------------------------------
         modelBuilder
           .Entity<SeguimientoEnvio>()
           .ToTable("SeguimientoEnvio")
@@ -502,7 +521,7 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(p => p.OrdenEnvioID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Costo Envio  
+        //Tabla Costo Envio  ---------------------------------------------------
         modelBuilder
           .Entity<CostosEnvio>()
           .ToTable("CostosEnvio")
@@ -515,7 +534,7 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(p => p.OrdenEnvioID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Tabla Documentacion envio 
+        //Tabla Documentacion envio -------------------------------------------------
         modelBuilder
           .Entity<DocumentacionEnvio>()
           .ToTable("DocumentacionEnvio")

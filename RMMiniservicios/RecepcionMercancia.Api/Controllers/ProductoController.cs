@@ -27,13 +27,13 @@ public class ProductoController : Controller
         return Ok(respuesta);
     }
 
-    /*[HttpPost(Name = "ObtenerListaProducto")]
-    [ProducesResponseType(typeof(ProductoMS), (int)HttpStatusCode.OK)]
-    public IActionResult ObtenerListaProducto([FromBody] ProductoME mensajeEntrada)
+    [HttpPost(Name = "DevuelveTodosProductos")]
+    [ProducesResponseType(typeof(ProductosMSLista), (int)HttpStatusCode.OK)]
+    public IActionResult DevuelveTodosProductos([FromBody] ProductoME mensajeEntrada)
     {
-        var respuesta = _servicio.ObtenerListaProducto(mensajeEntrada);
+        var respuesta = _servicio.DevuelveTodosProductos(mensajeEntrada);
         return Ok(respuesta);
-    }*/
+    }
 
     // Métodos Command
     [HttpPost(Name = "NuevoProducto")]
