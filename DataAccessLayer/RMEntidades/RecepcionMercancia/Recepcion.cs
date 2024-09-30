@@ -42,4 +42,7 @@ public class Recepcion
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
     }
+    public Recepcion()
+    {
+    }
 }

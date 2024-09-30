@@ -33,4 +33,8 @@ public class Almacen
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
     }
+
+    public Almacen()
+    {
+    }
 }

@@ -1,9 +1,12 @@
 ﻿using GestionAlmacenes.Entidad;
+using GestionCompras.Entidad;
+using GestionDevoluciones.Entidad;
 using GestionInventarios.Entidad;
 using GestionPedidos.Entidad;
 using GestionProveedores.Entidad;
 using Microsoft.EntityFrameworkCore;
 using RecepcionMercancia.Entidad;
+using TransporteEnvios.Entidad;
 
 namespace AccesDataBase;
 
@@ -12,10 +15,8 @@ public class ApplicationDbContext : DbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
     }
-
     public DbSet<Producto> Producto { get; set; }
     public DbSet<Proveedor> Proveedores { get; set; }
-    public DbSet<OrdenDeCompra> OrdenesDeCompra { get; set; }
     public DbSet<ItemDeOrdenDeCompra> ItemsDeOrdenDeCompra { get; set; }
     public DbSet<Recepcion> Recepciones { get; set; }
     public DbSet<ItemRecepcion> ItemsRecepcion { get; set; }
@@ -29,63 +30,96 @@ public class ApplicationDbContext : DbContext
     public DbSet<OrdenesTransferenciaInterna> OrdenesTransferenciaInterna { get; set; }
     public DbSet<Pedido> Pedidos { get; set; }
     public DbSet<Cliente> Clientes { get; set; }
+    public DbSet<DetallesPedido> DetallesPedidos { get; set; }
+    public DbSet<Devoluciones> Devoluciones { get; set; }
+    public DbSet<HistorialEstadoPedido> HistorialEstadoPedido { get; set; }
+    public DbSet<DetallesDevolucion> DetallesDevolucion { get; set; }
+    public DbSet<HistorialEstadoDevolucion> HistorialEstadoDevolucion { get; set; }
+    public DbSet<PagosDevoluciones> PagosDevoluciones { get; set; }
+    public DbSet<OrdenesCompra> OrdenesCompra { get; set; }
+    public DbSet<PagosProveedores> PagosProveedores { get; set; }
+    public DbSet<HistorialProveedor> HistorialProveedores { get; set; }
+    public DbSet<OrdenesEnvio> OrdenesEnvios { get; set; }
+    public DbSet<Transportista> Transportistas { get; set; }
+    public DbSet<SeguimientoEnvio> SeguimientoEnvios { get; set; }
+    public DbSet<CostosEnvio> CostosEnvios { get; set; }
+    public DbSet<DocumentacionEnvio> DocumentacionesEnvio { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        //Producto 
+        //Tabla Producto 
         modelBuilder
             .Entity<Producto>()
-            .ToTable("Producto");
-        //Provedor 
+            .ToTable("Producto")
+            .HasKey(p => p.ProductoID);
+
+        //Tabla Provedor 
         modelBuilder
             .Entity<Proveedor>()
-            .ToTable("Proveedor");
+            .ToTable("Proveedor")
+            .HasKey(p => p.ProveedorID);
 
-        //OrdenDeCompra 
+        //Tabla OrdenDeCompra 
         modelBuilder
-            .Entity<OrdenDeCompra>()
-            .ToTable("OrdenDeCompra");
+            .Entity<OrdenesCompra>()
+            .ToTable("OrdenesCompra")
+            .HasKey(p => p.OrdenCompraID);
+        // Configuración de relaciones
+        modelBuilder
+            .Entity<OrdenesCompra>()
+            .HasOne<Proveedor>()  // Relación con la tabla Proveedor
+            .WithMany()
+            .HasForeignKey(p => p.ProveedorID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Item Orden de compra
-
+        //Tabla Item Orden de compra
         modelBuilder
             .Entity<ItemDeOrdenDeCompra>()
-            .ToTable("ItemDeOrdenDeCompra");
-        modelBuilder
-            .Entity<ItemDeOrdenDeCompra>()
-            .Property(i => i.ItemDeOrdenDeCompraID)
-            .HasDefaultValueSql("gen_random_uuid()");  // Generar un nuevo UUID por defecto
+            .ToTable("ItemDeOrdenDeCompra")
+            .HasKey(p => p.ItemDeOrdenDeCompraID);
 
         // Configuración de relaciones
         modelBuilder
             .Entity<ItemDeOrdenDeCompra>()
-            .HasOne(i => i.OrdenDeCompra)
+            .HasOne<OrdenesCompra>()  // Relación con la tabla Orden de Compra
             .WithMany()
-            .HasForeignKey(i => i.OrdenDeCompraID)
-            .OnDelete(DeleteBehavior.Cascade);  // Comportamiento de eliminación en cascada
+            .HasForeignKey(p => p.OrdenDeCompraID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
         modelBuilder
             .Entity<ItemDeOrdenDeCompra>()
-            .HasOne(i => i.Producto)
+            .HasOne<Producto>()  // Relación con la tabla Producto
             .WithMany()
-            .HasForeignKey(i => i.ProductoID)
-            .OnDelete(DeleteBehavior.Cascade);
-        //Recepcion 
+            .HasForeignKey(p => p.ProductoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Recepcion 
         modelBuilder
             .Entity<Recepcion>()
-            .ToTable("Recepciones");
+            .ToTable("Recepciones")
+            .HasKey(p => p.RecepcionID);
+
         modelBuilder
             .Entity<Recepcion>()
-            .HasOne<OrdenDeCompra>()
+            .HasOne<OrdenesCompra>()  // Relación con la tabla Orden de Compra
+            .WithMany()
+            .HasForeignKey(p => p.OrdenDeCompraID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        modelBuilder
+            .Entity<Recepcion>()
+            .HasOne<OrdenesCompra>()
             .WithMany()
             .HasForeignKey(r => r.OrdenDeCompraID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        //Item Recepcion 
+        //Tabla Item Recepcion 
         modelBuilder
             .Entity<ItemRecepcion>()
-            .ToTable("itemsRecepcion");
+            .ToTable("ItemsRecepcion")
+            .HasKey(p => p.RecepccionItemID);
 
         modelBuilder
             .Entity<ItemRecepcion>()
@@ -101,96 +135,136 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(ir => ir.ProductoID)
             .OnDelete(DeleteBehavior.Cascade);
 
-        //Almacen
+        //Tabla Almacen
         modelBuilder
             .Entity<Almacen>()
-            .ToTable("Almacenes");
+            .ToTable("Almacenes")
+            .HasKey(p => p.AlmacenID);
 
-        //Inventario 
+        //Tabla Inventario 
         modelBuilder
             .Entity<Inventario>()
-            .ToTable("Inventarios");
-
-        modelBuilder.Entity<MovimientoInventario>()
+            .ToTable("Inventarios")
+            .HasKey(p => p.InventarioID);
+        modelBuilder
+            .Entity<Inventario>()
+            .HasOne<Almacen>()
+            .WithMany()
+            .HasForeignKey(ir => ir.AlmacenID)
+            .OnDelete(DeleteBehavior.Cascade);
+        modelBuilder
+            .Entity<Inventario>()
             .HasOne<Producto>()
             .WithMany()
-            .HasForeignKey(m => m.ProductoID)
-            .OnDelete(DeleteBehavior.Restrict);
+            .HasForeignKey(ir => ir.ProductoID)
+            .OnDelete(DeleteBehavior.Cascade);        
 
-        //Movimientos Inventarios 
+        //Tabla Movimientos Inventarios 
         modelBuilder
             .Entity<MovimientoInventario>()
-            .ToTable("MovimientosInventario");
+            .ToTable("MovimientosInventario")
+            .HasKey(p => p.MovimientoID);
 
-        modelBuilder.Entity<MovimientoInventario>()
+        modelBuilder
+            .Entity<MovimientoInventario>()
             .HasOne<Almacen>()
             .WithMany()
             .HasForeignKey(m => m.AlmacenID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        //Ubicacion 
+        modelBuilder
+            .Entity<MovimientoInventario>()
+            .HasOne<Producto>()
+            .WithMany()
+            .HasForeignKey(m => m.ProductoID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        //Tabla Ubicacion 
         modelBuilder
             .Entity<Ubicacion>()
-            .ToTable("Ubicaciones");
+            .ToTable("Ubicaciones")
+            .HasKey(p => p.UbicacionID);
 
-        modelBuilder.Entity<Ubicacion>()
+        modelBuilder
+           .Entity<Ubicacion>()
            .HasOne<Almacen>()
            .WithMany()
            .HasForeignKey(u => u.AlmacenID)
            .OnDelete(DeleteBehavior.Cascade);
 
-        //Movimientos Almacen 
+        //Tabla Movimientos Almacen 
         modelBuilder
            .Entity<MovimientosAlmacen>()
-           .ToTable("movimientosAlmacen");
+           .ToTable("movimientosAlmacen")
+           .HasKey(p => p.MovimientoID);
 
-        modelBuilder.Entity<MovimientosAlmacen>()
+        modelBuilder
+            .Entity<MovimientosAlmacen>()
             .HasOne<Producto>()  // Asumiendo que tienes una entidad Producto
             .WithMany()
             .HasForeignKey(m => m.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);  // Configurar comportamiento en eliminación
+        modelBuilder
+            .Entity<MovimientosAlmacen>()
+            .HasOne<Ubicacion>()  // Asumiendo que tienes una entidad Ubicaciones
+            .WithMany()
+            .HasForeignKey(m => m.UbicacionOrigenID)
+            .OnDelete(DeleteBehavior.Restrict);  // Configurar comportamiento en eliminación
+        modelBuilder
+            .Entity<MovimientosAlmacen>()
+            .HasOne<Ubicacion>()  // Asumiendo que tienes una entidad Ubicaciones
+            .WithMany()
+            .HasForeignKey(m => m.UbicacionDestinoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Configurar comportamiento en eliminación
 
-        //Inventarios Ubicacion
+        //Tabla Inventarios Ubicacion
         modelBuilder
              .Entity<InventarioUbicaciones>()
-             .ToTable("InventarioUbicaciones");
+             .ToTable("InventarioUbicaciones")
+             .HasKey(p => p.InventarioUbicacionID);
 
-        modelBuilder.Entity<InventarioUbicaciones>()
+        modelBuilder
+            .Entity<InventarioUbicaciones>()
             .HasOne<Ubicacion>()  // Relación con la tabla Ubicaciones
             .WithMany()
             .HasForeignKey(i => i.UbicacionID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        modelBuilder.Entity<InventarioUbicaciones>()
+        modelBuilder
+            .Entity<InventarioUbicaciones>()
             .HasOne<Producto>()  // Relación con la tabla Productos
             .WithMany()
             .HasForeignKey(i => i.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        //Zona Almacen 
+        //Tabla Zona Almacen 
         modelBuilder
             .Entity<ZonasAlmacen>()
-            .ToTable("ZonasAlmacen");
+            .ToTable("ZonasAlmacen")
+            .HasKey(p => p.ZonaID);
 
-        modelBuilder.Entity<ZonasAlmacen>()
+        modelBuilder
+           .Entity<ZonasAlmacen>()
            .HasOne<Almacen>()  // Relación con la tabla Almacenes
            .WithMany()
            .HasForeignKey(z => z.AlmacenID)
            .OnDelete(DeleteBehavior.Restrict);
 
-
-        //OrndenesTransferencia Interna
+        //Tabla OrdenesTransferencia Interna
         modelBuilder
             .Entity<OrdenesTransferenciaInterna>()
-            .ToTable("OrdenesTransferenciaInterna");
+            .ToTable("OrdenesTransferenciaInterna")
+            .HasKey(p => p.OrdenTransferenciaID);
 
-        modelBuilder.Entity<OrdenesTransferenciaInterna>()
+        modelBuilder
+           .Entity<OrdenesTransferenciaInterna>()
            .HasOne<Almacen>()  // Relación con la tabla Almacenes
            .WithMany()
            .HasForeignKey(o => o.AlmacenOrigenID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        modelBuilder.Entity<OrdenesTransferenciaInterna>()
+        modelBuilder
+            .Entity<OrdenesTransferenciaInterna>()
             .HasOne<Almacen>()  // Relación con la tabla Almacenes
             .WithMany()
             .HasForeignKey(o => o.AlmacenDestinoID)
@@ -203,11 +277,12 @@ public class ApplicationDbContext : DbContext
             .HasForeignKey(o => o.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);
 
-        //Pedido 
-
+        //Tabla Pedido 
         modelBuilder
             .Entity<Pedido>()
-            .ToTable("Pedido");
+            .ToTable("Pedido")
+            .HasKey(p => p.PedidoID);
+
         modelBuilder
            .Entity<Pedido>()
            .HasOne<Cliente>()  // Relación con la tabla Clientes
@@ -215,34 +290,244 @@ public class ApplicationDbContext : DbContext
            .HasForeignKey(p => p.ClienteID)
            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
 
-        //Cliente 
+        //Tabla Cliente 
         modelBuilder
            .Entity<Cliente>()
-           .ToTable("Cliente");
+           .ToTable("Cliente")
+           .HasKey(p => p.ClienteID);       
 
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.Nombre)
-            .IsRequired()
-            .HasMaxLength(100);  // Configurar propiedades del nombre
+        //Tabla Detalles Pedido 
+        modelBuilder
+            .Entity<DetallesPedido>()
+            .ToTable("DetallesPedido")
+            .HasKey(p => p.DetalleID);
 
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.CorreoElectronico)
-            .IsRequired()
-            .HasMaxLength(100);  // Configurar propiedades del correo electrónico
-
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.Telefono)
-            .HasMaxLength(20);  // Configurar propiedades del teléfono
-        modelBuilder.Entity<Cliente>()
-            .Property(c => c.Direccion)
-            .HasMaxLength(255);  // Configurar propiedades de la dirección
-
-        // Configuración de relaciones con la tabla Pedidos
-        modelBuilder.Entity<Pedido>()
-            .HasOne<Cliente>()  // Relación con la tabla Clientes
+        //Tabla Relaciones
+        modelBuilder
+            .Entity<DetallesPedido>()
+            .HasOne<Producto>()  // Relación con la tabla Producto
             .WithMany()
-            .HasForeignKey(p => p.ClienteID)
+            .HasForeignKey(p => p.ProductoID)
             .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        modelBuilder
+            .Entity<DetallesPedido>()
+            .HasOne<Pedido>()  // Relación con la tabla Pedido
+            .WithMany()
+            .HasForeignKey(p => p.PedidoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla pagos 
+
+        modelBuilder
+            .Entity<Pagos>()
+            .ToTable("Pagos")
+            .HasKey(p => p.PagoID);  // Clave primaria del pago
+
+        modelBuilder
+            .Entity<Pagos>()
+            .HasOne<Pedido>()  // Relación con la tabla Pedidos
+            .WithMany()
+            .HasForeignKey(p => p.PedidoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Devoluciones 
+        modelBuilder
+            .Entity<Devoluciones>()
+            .ToTable("Devoluciones")
+            .HasKey(p => p.DevolucionID);
+
+        modelBuilder
+            .Entity<Devoluciones>()
+            .HasOne<Pedido>()  // Relación con la tabla Pedidos
+            .WithMany()
+            .HasForeignKey(p => p.PedidoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Historial de devoluciones 
+        modelBuilder
+            .Entity<HistorialEstadoPedido>()
+            .ToTable("HistorialEstadoPedido")
+            .HasKey(p => p.HistorialID);
+
+        modelBuilder
+            .Entity<HistorialEstadoPedido>()
+            .HasOne<Pedido>()  // Relación con la tabla Pedidos
+            .WithMany()
+            .HasForeignKey(p => p.PedidoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Detalles de devolucion 
+
+        modelBuilder
+           .Entity<DetallesDevolucion>()
+           .ToTable("DetallesDevolucion")
+           .HasKey(p => p.DetalleDevolucionID);
+
+        modelBuilder
+            .Entity<DetallesDevolucion>()
+            .HasOne<Producto>()  // Relación con la tabla Pedidos
+            .WithMany()
+            .HasForeignKey(p => p.ProductoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        modelBuilder
+            .Entity<DetallesDevolucion>()
+            .HasOne<Devoluciones>()  // Relación con la tabla Pedidos
+            .WithMany()
+            .HasForeignKey(p => p.DevolucionID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla HistorialEstadoDevolucion
+        modelBuilder
+          .Entity<HistorialEstadoDevolucion>()
+          .ToTable("HistorialEstadoDevolucion")
+          .HasKey(p => p.HistorialDevolucionID);
+
+        modelBuilder
+            .Entity<HistorialEstadoDevolucion>()
+            .HasOne<Devoluciones>()  // Relación con la tabla devoluciones
+            .WithMany()
+            .HasForeignKey(p => p.DevolucionID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Pagos Devoluciones 
+        modelBuilder
+          .Entity<PagosDevoluciones>()
+          .ToTable("PagosDevoluciones")
+          .HasKey(p => p.PagoDevolucionID);
+
+        modelBuilder
+            .Entity<PagosDevoluciones>()
+            .HasOne<Devoluciones>()  // Relación con la tabla devoluciones
+            .WithMany()
+            .HasForeignKey(p => p.DevolucionID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Detalles Orden de Compras 
+        modelBuilder
+          .Entity<DetallesOrdenCompra>()
+          .ToTable("DetallesOrdenCompra")
+          .HasKey(p => p.DetalleOrdenCompraID);
+
+        modelBuilder
+            .Entity<DetallesOrdenCompra>()
+            .HasOne<OrdenesCompra>()  // Relación con la tabla Orden de Compras
+            .WithMany()
+            .HasForeignKey(p => p.OrdenCompraID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        modelBuilder
+            .Entity<DetallesOrdenCompra>()
+            .HasOne<Producto>()  // Relación con la tabla Producto
+            .WithMany()
+            .HasForeignKey(p => p.ProductoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Detalles Pago a proveedores
+        modelBuilder
+          .Entity<PagosProveedores>()
+          .ToTable("PagosProveedores")
+          .HasKey(p => p.PagoProveedorID);
+
+        modelBuilder
+            .Entity<PagosProveedores>()
+            .HasOne<Proveedor>()  // Relación con la tabla Proveedor
+            .WithMany()
+            .HasForeignKey(p => p.ProveedorID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Detalles Historial de proveedores
+        modelBuilder
+          .Entity<HistorialProveedor>()
+          .ToTable("HistorialProveedor")
+          .HasKey(p => p.HistorialProveedorID);
+
+        modelBuilder
+            .Entity<HistorialProveedor>()
+            .HasOne<Proveedor>()  // Relación con la tabla provedor 
+            .WithMany()
+            .HasForeignKey(p => p.ProveedorID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Ordenes de Envio
+        modelBuilder
+          .Entity<OrdenesEnvio>()
+          .ToTable("OrdenesEnvio")
+          .HasKey(p => p.OrdenEnvioID);
+
+        modelBuilder
+            .Entity<OrdenesEnvio>()
+            .HasOne<Pedido>()  // Relación con la tabla pedido 
+            .WithMany()
+            .HasForeignKey(p => p.PedidoID)
+            .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        modelBuilder
+           .Entity<OrdenesEnvio>()
+           .HasOne<Transportista>()  // Relación con la tabla pedido 
+           .WithMany()
+           .HasForeignKey(p => p.TransportistaID)
+           .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Transportista
+        modelBuilder
+          .Entity<Transportista>()
+          .ToTable("Transportista")
+          .HasKey(p => p.TransportistaID);
+
+        //Tabla Rutas
+        modelBuilder
+          .Entity<Ruta>()
+          .ToTable("Ruta")
+          .HasKey(p => p.RutaID);
+
+        modelBuilder
+           .Entity<Ruta>()
+           .HasOne<OrdenesEnvio>()  // Relación con la tabla Orden Envio  
+           .WithMany()
+           .HasForeignKey(p => p.OrdenEnvioID)
+           .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla SeguimientoEnvio 
+        modelBuilder
+          .Entity<SeguimientoEnvio>()
+          .ToTable("SeguimientoEnvio")
+          .HasKey(p => p.SeguimientoID);
+
+        modelBuilder
+           .Entity<SeguimientoEnvio>()
+           .HasOne<OrdenesEnvio>()  // Relación con la tabla Orden Envio  
+           .WithMany()
+           .HasForeignKey(p => p.OrdenEnvioID)
+           .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Costo Envio  
+        modelBuilder
+          .Entity<CostosEnvio>()
+          .ToTable("CostosEnvio")
+          .HasKey(p => p.CostoEnvioID);
+
+        modelBuilder
+           .Entity<CostosEnvio>()
+           .HasOne<OrdenesEnvio>()  // Relación con la tabla Orden Envio  
+           .WithMany()
+           .HasForeignKey(p => p.OrdenEnvioID)
+           .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
+        //Tabla Documentacion envio 
+        modelBuilder
+          .Entity<DocumentacionEnvio>()
+          .ToTable("DocumentacionEnvio")
+          .HasKey(p => p.DocumentacionID);
+
+        modelBuilder
+           .Entity<DocumentacionEnvio>()
+           .HasOne<OrdenesEnvio>()  // Relación con la tabla Orden Envio  
+           .WithMany()
+           .HasForeignKey(p => p.OrdenEnvioID)
+           .OnDelete(DeleteBehavior.Restrict);  // Comportamiento en eliminación
+
     }
 }
 

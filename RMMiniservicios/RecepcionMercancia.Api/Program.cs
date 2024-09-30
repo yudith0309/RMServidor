@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//Configuracion para iniciar los servicios 
 var servicios = new Servicios();
 servicios.ConfigureServices(builder.Services);
 

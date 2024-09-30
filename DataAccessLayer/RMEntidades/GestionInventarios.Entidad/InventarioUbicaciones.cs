@@ -33,4 +33,16 @@ public class InventarioUbicaciones
     [Column("fechaUltimaActualizacion")]
     public DateTime FechaUltimaActualizacion { get; set; }  // Fecha de la última actualización del inventario
 
+    public InventarioUbicaciones(Guid inventarioUbicacionID, Guid ubicacionID, Guid productoID, decimal cantidadDisponible, decimal cantidadReservada, DateTime fechaUltimaActualizacion)
+    {
+        InventarioUbicacionID = inventarioUbicacionID;
+        UbicacionID = ubicacionID;
+        ProductoID = productoID;
+        CantidadDisponible = cantidadDisponible;
+        CantidadReservada = cantidadReservada;
+        FechaUltimaActualizacion = fechaUltimaActualizacion;
+    }
+    public InventarioUbicaciones()
+    {
+    }
 }

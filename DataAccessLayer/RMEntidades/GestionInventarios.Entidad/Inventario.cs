@@ -32,4 +32,8 @@ public class Inventario
         CantidadDisponible = cantidadDisponible;
         FechaUltimaActualizacion = fechaUltimaActualizacion;
     }
+
+    public Inventario()
+    {
+    }
 }

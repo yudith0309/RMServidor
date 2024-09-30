@@ -43,4 +43,7 @@ public class Producto
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
     }
+    public Producto()
+    {
+    }
 }

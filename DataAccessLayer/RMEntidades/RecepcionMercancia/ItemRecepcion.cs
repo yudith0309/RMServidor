@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecepcionMercancia.Entidad;
 
-[Table("itemsRecepcion", Schema = "RecepcionMercancia")]
+[Table("ItemsRecepcion", Schema = "RecepcionMercancia")]
 public class ItemRecepcion
 {
     [Key]

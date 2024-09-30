@@ -9,11 +9,11 @@ public class Pedido
 {
     [Key]
     [Column("PedidoID")]
-    public int PedidoID { get; set; }  // Clave primaria del pedido
+    public Guid PedidoID { get; set; }  // Clave primaria del pedido
 
     [Column("ClienteID")]
     [Required]
-    public int ClienteID { get; set; }  // Clave foránea que referencia a la tabla Clientes
+    public Guid ClienteID { get; set; }  // Clave foránea que referencia a la tabla Clientes
 
     [Column("FechaPedido")]
     [Required]
@@ -40,7 +40,7 @@ public class Pedido
     [Column("FechaActualizacion")]
     public DateTime FechaActualizacion { get; set; }  // Fecha de la última actualización del pedido
 
-    public Pedido(int pedidoID, int clienteID, DateTime fechaPedido, string estadoPedido, decimal total, string metodoPago, DateTime fechaCreacion, DateTime fechaActualizacion)
+    public Pedido(Guid pedidoID, Guid clienteID, DateTime fechaPedido, string estadoPedido, decimal total, string metodoPago, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
         PedidoID = pedidoID;
         ClienteID = clienteID;
@@ -50,5 +50,9 @@ public class Pedido
         MetodoPago = metodoPago;
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
+    }
+
+    public Pedido()
+    {
     }
 }

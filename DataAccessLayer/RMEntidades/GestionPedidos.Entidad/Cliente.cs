@@ -9,7 +9,7 @@ public class Cliente
 {
     [Key]
     [Column("ClienteID")]
-    public int ClienteID { get; set; }  // Clave primaria del cliente
+    public Guid ClienteID { get; set; }  // Clave primaria del cliente
 
     [Column("Nombre")]
     [Required]
@@ -34,4 +34,18 @@ public class Cliente
 
     [Column("FechaActualizacion")]
     public DateTime FechaActualizacion { get; set; }  // Fecha de la última actualización de los datos del cliente
+
+    public Cliente(Guid clienteID, string nombre, string correoElectronico, string telefono, string direccion, DateTime fechaCreacion, DateTime fechaActualizacion)
+    {
+        ClienteID = clienteID;
+        Nombre = nombre;
+        CorreoElectronico = correoElectronico;
+        Telefono = telefono;
+        Direccion = direccion;
+        FechaCreacion = fechaCreacion;
+        FechaActualizacion = fechaActualizacion;
+    }
+    public Cliente()
+    {
+    }
 }

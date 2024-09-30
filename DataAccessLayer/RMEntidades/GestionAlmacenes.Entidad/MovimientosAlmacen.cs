@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestionAlmacenes.Entidad;
 
-[Table("movimientosAlmacen", Schema = "GestionAlmacenes")]
+[Table("MovimientosAlmacen", Schema = "GestionAlmacenes")]
 public class MovimientosAlmacen
 {
     [Key]
@@ -55,7 +55,6 @@ public class MovimientosAlmacen
         DocumentoRelacionado = documentoRelacionado;
         UsuarioResponsable = usuarioResponsable;
     }
-
     public MovimientosAlmacen()
     {
     }

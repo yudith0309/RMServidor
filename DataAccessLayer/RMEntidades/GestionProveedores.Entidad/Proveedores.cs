@@ -37,6 +37,9 @@ public class Proveedor
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
     }
+    public Proveedor()
+    {
+    }
 }
 
 

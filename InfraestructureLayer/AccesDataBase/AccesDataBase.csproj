@@ -19,10 +19,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Business Layer\RMApplication.Interfaces\RecepcionMercancia.Command.Interfaces\RecepcionMercancia.Command.Interfaces.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionAlmacenes.Entidad\GestionAlmacenes.Entidad.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionCompras.Entidad\GestionCompras.Entidad.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionDevoluciones.Entidad\GestionDevoluciones.Entidad.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionInventarios.Entidad\GestionInventarios.Entidad.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionPedidos.Entidad\GestionPedidos.Entidad.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\GestionProveedores.Entidad\GestionProveedores.Entidad.csproj" />
     <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\RecepcionMercancia\RecepcionMercancia.Entidad.csproj" />
+    <ProjectReference Include="..\..\DataAccessLayer\RMEntidades\TransporteEnvios.Entidad\TransporteEnvios.Entidad.csproj" />
   </ItemGroup>
 
 </Project>
