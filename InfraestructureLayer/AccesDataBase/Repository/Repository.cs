@@ -13,10 +13,16 @@ public class Repository : IRepository
 
     public T ObtenerPorId<T>(Guid id) where T : class
     {
-        return _context.Set<T>()
+        var entidad = _context.Set<T>()
             .FindAsync(id)
             .GetAwaiter()
             .GetResult();
+        if (entidad == null)
+        {
+            throw new KeyNotFoundException($"No se encontró una entidad de tipo {typeof(T).Name} con el ID '{id}'");
+        }
+
+        return entidad;
     }
 
     public List<T> ObtenerTodos<T>() where T : class

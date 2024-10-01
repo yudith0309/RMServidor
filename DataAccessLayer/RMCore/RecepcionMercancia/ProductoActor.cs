@@ -22,8 +22,7 @@ public partial class ProductoActor : IProductoActor
 
     public List<Producto> ObtenerListaProducto()
     {
-        var listaProducto = new List<Producto>();
-        listaProducto = _repository.ObtenerTodos<Producto>();
+      var listaProducto = _repository.ObtenerTodos<Producto>();
         return listaProducto;
     }
 }

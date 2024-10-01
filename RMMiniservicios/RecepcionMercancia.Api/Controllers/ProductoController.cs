@@ -51,4 +51,12 @@ public class ProductoController : Controller
         var respuesta = _servicioCmd.ActualizaProducto(mensajeEntrada);
         return Ok(respuesta);
     }
+
+    [HttpPost(Name = "EliminarProducto")]
+    [ProducesResponseType(typeof(ProductoMS), (int)HttpStatusCode.OK)]
+    public IActionResult EliminarProducto([FromBody] ProductoME mensajeEntrada)
+    {
+        var respuesta = _servicioCmd.EliminarProducto(mensajeEntrada);
+        return Ok(respuesta);
+    }
 }

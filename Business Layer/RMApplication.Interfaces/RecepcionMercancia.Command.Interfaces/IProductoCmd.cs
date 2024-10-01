@@ -6,4 +6,5 @@ public interface IProductoCmd
 {
     ProductoMS NuevoProducto(ProductoME mensajeEntrada);
     ProductoMS ActualizaProducto(ProductoME mensajeEntrada);
+    ProductoMS EliminarProducto(ProductoME mensajeEntrada);
 }

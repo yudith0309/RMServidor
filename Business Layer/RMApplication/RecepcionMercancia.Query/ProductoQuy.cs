@@ -32,8 +32,7 @@ public class ProductoQuy : IProductoQuy
     {
         var lista = _gestorId.Resuelve<IProductoActor>().ObtenerListaProducto();
         var listaMS =
-            lista
-            .Transformar(producto =>
+            lista.Transformar(producto =>
             new ProductoMS(producto.ProductoID,
                            producto.CodigoProducto,
                            producto.NombreProducto,

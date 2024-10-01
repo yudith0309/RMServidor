@@ -40,24 +40,34 @@ public class ProductoCmd : IProductoCmd
 
     public ProductoMS ActualizaProducto(ProductoME mensajeEntrada)
     {
-        var nuevoProducto =
-            new Producto(
-                mensajeEntrada.ProductoID,
-                mensajeEntrada.CodigoProducto,
-                mensajeEntrada.NombreProducto,
-                mensajeEntrada.Descripcion,
-                mensajeEntrada.UnidadMedida,
-                mensajeEntrada.FechaCreacion,
-                mensajeEntrada.FechaActualizacion);
+        var nuevoProducto = 
+            _gestorId
+            .Resuelve<IProductoActor>()
+            .ProcesaActualizar(mensajeEntrada.ProductoID,
+                               mensajeEntrada.CodigoProducto,
+                               mensajeEntrada.NombreProducto,
+                               mensajeEntrada.Descripcion,
+                               mensajeEntrada.UnidadMedida,
+                               mensajeEntrada.FechaCreacion,
+                               mensajeEntrada.FechaActualizacion);
+       
+        return new ProductoMS(nuevoProducto.ProductoID,
+                              nuevoProducto.CodigoProducto,
+                              nuevoProducto.NombreProducto,
+                              nuevoProducto.Descripcion,
+                              nuevoProducto.UnidadMedida,
+                              nuevoProducto.FechaCreacion,
+                              nuevoProducto.FechaActualizacion);
+    }
 
-        return new ProductoMS
-               (nuevoProducto.ProductoID,
-                nuevoProducto.CodigoProducto,
-                nuevoProducto.NombreProducto,
-                nuevoProducto.Descripcion,
-                nuevoProducto.UnidadMedida,
-                nuevoProducto.FechaCreacion,
-                nuevoProducto.FechaActualizacion);
+    public ProductoMS EliminarProducto(ProductoME mensajeEntrada)
+    {
+        var productoActor = _gestorId.Resuelve<IProductoActor>();
+        var producto = _gestorId.Resuelve<IProductoActor>().ObtenerProductoPorId(mensajeEntrada.ProductoID);
+                
+        productoActor.ProcesaEliminar(producto);
+
+        return new ProductoMS();
     }
 
 
