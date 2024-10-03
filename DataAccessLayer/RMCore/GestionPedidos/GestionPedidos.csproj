@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
+    <ProjectReference Include="..\..\RMCore.Interfaces\GestionPedidos.Interfaces\GestionPedidos.Interfaces.csproj" />
+    <ProjectReference Include="..\..\RMEntidades\GestionPedidos.Entidad\GestionPedidos.Entidad.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\RMEntidades\GestionPedidos.Entidad\GestionPedidos.Entidad.csproj" />
+  </ItemGroup>
+
 </Project>

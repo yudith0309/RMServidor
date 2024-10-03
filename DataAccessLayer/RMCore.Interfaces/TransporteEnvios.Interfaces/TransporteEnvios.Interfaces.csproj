@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\RMEntidades\TransporteEnvios.Entidad\TransporteEnvios.Entidad.csproj" />
+  </ItemGroup>
+
 </Project>

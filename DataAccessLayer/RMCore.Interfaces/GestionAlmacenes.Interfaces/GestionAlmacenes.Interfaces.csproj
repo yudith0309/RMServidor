@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\RMEntidades\GestionAlmacenes.Entidad\GestionAlmacenes.Entidad.csproj" />
+  </ItemGroup>
+
 </Project>

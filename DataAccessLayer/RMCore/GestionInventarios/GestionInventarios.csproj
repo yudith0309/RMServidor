@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\InfraestructureLayer\AccesDataBase\AccesDataBase.csproj" />
+    <ProjectReference Include="..\..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
+    <ProjectReference Include="..\..\RMCore.Interfaces\GestionInventarios.Interfaces\GestionInventarios.Interfaces.csproj" />
+    <ProjectReference Include="..\..\RMEntidades\GestionInventarios.Entidad\GestionInventarios.Entidad.csproj" />
+  </ItemGroup>
+
 </Project>
