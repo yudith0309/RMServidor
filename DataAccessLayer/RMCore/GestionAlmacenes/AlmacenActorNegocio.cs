@@ -9,7 +9,6 @@ public partial class AlmacenActor
         _repository.Agregar(almacen);
 
     }
-
     public void ProcesaEliminar(Almacen almacen)
     {
         _repository.Eliminar(almacen);

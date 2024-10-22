@@ -30,14 +30,17 @@ public class ItemRecepcion
     public string Comentarios { get; set; }  // Comentarios adicionales
     public ItemRecepcion()   {  }
 
-    // Constructor solo con propiedades mapeadas
-    public ItemRecepcion(Guid recepcionID, Guid productoID, int cantidadRecibida, string condicion, string comentarios)
+    public ItemRecepcion(Guid recepccionItemID, Guid recepcionID, Guid productoID, int cantidadRecibida, string condicion, string comentarios)
     {
+        RecepccionItemID = recepccionItemID;
         RecepcionID = recepcionID;
         ProductoID = productoID;
         CantidadRecibida = cantidadRecibida;
         Condicion = condicion;
         Comentarios = comentarios;
     }
+
+    // Constructor solo con propiedades mapeadas
+
 
 }

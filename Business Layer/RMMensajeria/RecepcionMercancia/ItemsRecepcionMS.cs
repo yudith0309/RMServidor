@@ -8,7 +8,9 @@ public class ItemsRecepcionMS
     public int CantidadRecibida { get; set; }
     public string Condicion { get; set; }
     public string Comentarios { get; set; }
-
+    public ItemsRecepcionMS()
+    {
+    }
     public ItemsRecepcionMS(Guid recepccionItemID, Guid recepcionID, Guid productoID, int cantidadRecibida, string condicion, string comentarios)
     {
         RecepccionItemID = recepccionItemID;
@@ -18,7 +20,16 @@ public class ItemsRecepcionMS
         Condicion = condicion;
         Comentarios = comentarios;
     }
-    public ItemsRecepcionMS()
+
+    public class ItemsRecepcionesMSLista
     {
+        public ItemsRecepcionesMSLista() { }
+
+        public ItemsRecepcionesMSLista(ItemsRecepcionMS[] itemsRecepcionesMS)
+        {
+            ItemsRecepcionMS = itemsRecepcionesMS;
+        }
+        public ItemsRecepcionMS[] ItemsRecepcionMS { get; set; }
     }
+
 }
