@@ -24,3 +24,14 @@ public class HistorialProveedorMS
     {
     }
 }
+
+public class HistorialProveedorMSLista
+{
+    public HistorialProveedorMSLista() { }
+
+    public HistorialProveedorMSLista(HistorialProveedorMS[] historialProveedorMS)
+    {
+        HistorialProveedorMS = historialProveedorMS;
+    }
+    public HistorialProveedorMS[] HistorialProveedorMS { get; set; }
+}

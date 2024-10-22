@@ -22,3 +22,14 @@ public class DocumentacionEnvioMS
     {
     }
 }
+
+public class DocumentacionEnvioMSLista
+{
+    public DocumentacionEnvioMSLista() { }
+
+    public DocumentacionEnvioMSLista(DocumentacionEnvioMS[] documentacionEnvio)
+    {
+        DocumentacionEnvioMS = documentacionEnvio;
+    }
+    public DocumentacionEnvioMS[] DocumentacionEnvioMS { get; set; }
+}

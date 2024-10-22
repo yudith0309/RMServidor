@@ -26,3 +26,14 @@ public class PagosMS
     {
     }
 }
+
+public class PagosMSLista
+{
+    public PagosMSLista() { }
+
+    public PagosMSLista(PagosMS[] pagosMS)
+    {
+        PagosMS = pagosMS;
+    }
+    public PagosMS[] PagosMS { get; set; }
+}

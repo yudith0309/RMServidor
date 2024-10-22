@@ -26,3 +26,14 @@ public class MovimientosInventarioMS
     {
     }
 }
+
+public class MovimientosInventarioMSLista
+{
+    public MovimientosInventarioMSLista() { }
+
+    public MovimientosInventarioMSLista(MovimientosInventarioMS[] movimientosInventarioMS)
+    {
+        MovimientosInventarioMS = movimientosInventarioMS;
+    }
+    public MovimientosInventarioMS[] MovimientosInventarioMS { get; set; }
+}

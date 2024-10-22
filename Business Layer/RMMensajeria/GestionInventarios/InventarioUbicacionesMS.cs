@@ -1,4 +1,4 @@
-﻿namespace RMMensajeria.GestionInventarios;
+﻿namespace RMMensajeria.GestionInventarioUbicaciones;
 
 public class InventarioUbicacionesMS
 {
@@ -23,3 +23,15 @@ public class InventarioUbicacionesMS
     {
     }
 }
+
+public class InventarioUbicacionesMSLista
+{
+    public InventarioUbicacionesMSLista() { }
+
+    public InventarioUbicacionesMSLista(InventarioUbicacionesMS[] inventarioUbicacionesMS)
+    {
+        InventarioUbicacionesMS = inventarioUbicacionesMS;
+    }
+    public InventarioUbicacionesMS[] InventarioUbicacionesMS { get; set; }
+}
+

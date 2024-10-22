@@ -26,3 +26,14 @@ public class PedidoMS
     {
     }
 }
+
+public class PedidoMSLista
+{
+    public PedidoMSLista() { }
+
+    public PedidoMSLista(PedidoMS[] pedidoMS)
+    {
+        PedidoMS = pedidoMS;
+    }
+    public PedidoMS[] PedidoMS { get; set; }
+}

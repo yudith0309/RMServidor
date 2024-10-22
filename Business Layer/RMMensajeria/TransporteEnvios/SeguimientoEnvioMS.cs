@@ -26,3 +26,14 @@ public class SeguimientoEnvioMS
     {
     }
 }
+
+public class SeguimientoEnvioMSLista
+{
+    public SeguimientoEnvioMSLista() { }
+
+    public SeguimientoEnvioMSLista(SeguimientoEnvioMS[] seguimientoEnvioMS)
+    {
+        SeguimientoEnvioMS = seguimientoEnvioMS;
+    }
+    public SeguimientoEnvioMS[] SeguimientoEnvioMS { get; set; }
+}

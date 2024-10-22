@@ -26,3 +26,14 @@ public class RutasMS
     {
     }
 }
+public class RutasMSLista
+{
+    public RutasMSLista() { }
+
+    public RutasMSLista(RutasMS[] rutasMS)
+    {
+        RutasMS = rutasMS;
+    }
+    public RutasMS[] RutasMS { get; set; }
+}
+

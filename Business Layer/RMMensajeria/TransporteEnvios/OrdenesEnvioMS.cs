@@ -28,3 +28,15 @@ public class OrdenesEnvioMS
     {
     }
 }
+
+public class OrdenesEnvioMSLista
+{
+    public OrdenesEnvioMSLista() { }
+
+    public OrdenesEnvioMSLista(OrdenesEnvioMS[] ordenesEnvioMS)
+    {
+        OrdenesEnvioMS = ordenesEnvioMS;
+    }
+    public OrdenesEnvioMS[] OrdenesEnvioMS { get; set; }
+}
+

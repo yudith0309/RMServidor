@@ -28,3 +28,15 @@ public class TransportistasMS
     {
     }
 }
+
+public class TransportistasMSLista
+{
+    public TransportistasMSLista() { }
+
+    public TransportistasMSLista(TransportistasMS[] transportistasMS)
+    {
+        TransportistasMS = transportistasMS;
+    }
+    public TransportistasMS[] TransportistasMS { get; set; }
+}
+

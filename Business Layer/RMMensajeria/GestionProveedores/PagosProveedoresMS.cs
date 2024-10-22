@@ -26,3 +26,14 @@ public class PagosProveedoresMS
     {
     }
 }
+public class PagosProveedoresMSLista
+{
+    public PagosProveedoresMSLista() { }
+
+    public PagosProveedoresMSLista(PagosProveedoresMS[] pagosProveedoresMS)
+    {
+        PagosProveedoresMS = pagosProveedoresMS;
+    }
+    public PagosProveedoresMS[] PagosProveedoresMS { get; set; }
+}
+

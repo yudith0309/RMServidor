@@ -11,6 +11,9 @@ public class CostosEnvioMS
     public DateTime FechaCreacion { get; set; } = DateTime.Now;
     public DateTime FechaActualizacion { get; set; } = DateTime.Now;
 
+    public CostosEnvioMS()
+    {
+    }
     public CostosEnvioMS(Guid costoEnvioID, Guid ordenEnvioID, decimal costoBase, decimal costoAdicional, decimal descuento, decimal costoTotal, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
         CostoEnvioID = costoEnvioID;
@@ -21,8 +24,16 @@ public class CostosEnvioMS
         CostoTotal = costoTotal;
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
-    }
-    public CostosEnvioMS()
+    }    
+}
+
+public class CostosEnvioMSLista
+{
+    public CostosEnvioMSLista() { }
+
+    public CostosEnvioMSLista(CostosEnvioMS[] costosEnvioMS)
     {
+        CostosEnvioMS = costosEnvioMS;
     }
+    public CostosEnvioMS[] CostosEnvioMS { get; set; }
 }

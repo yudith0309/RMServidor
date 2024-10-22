@@ -8,7 +8,6 @@ namespace RecepcionMercancia.Query;
 public class RecepcionQuy : IRecepcionQuy
 {
     private readonly IGestorId _gestorId;
-
     public RecepcionQuy(IGestorId gestorId)
     {
         _gestorId = gestorId;

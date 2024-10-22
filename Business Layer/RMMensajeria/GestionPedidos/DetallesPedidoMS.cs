@@ -26,3 +26,14 @@ public class DetallesPedidoMS
     {
     }
 }
+public class DetallesPedidoMSLista
+{
+    public DetallesPedidoMSLista() { }
+
+    public DetallesPedidoMSLista(DetallesPedidoMS[] detallesPedidoMS)
+    {
+        DetallesPedidoMS = detallesPedidoMS;
+    }
+    public DetallesPedidoMS[] DetallesPedidoMS { get; set; }
+}
+

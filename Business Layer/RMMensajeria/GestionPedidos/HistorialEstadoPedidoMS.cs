@@ -22,3 +22,13 @@ public class HistorialEstadoPedidoMS
     {
     }
 }
+public class HistorialEstadoPedidoMSLista
+{
+    public HistorialEstadoPedidoMSLista() { }
+
+    public HistorialEstadoPedidoMSLista(HistorialEstadoPedidoMS[] historialEstadoPedidoMS)
+    {
+        HistorialEstadoPedidoMS = historialEstadoPedidoMS;
+    }
+    public HistorialEstadoPedidoMS[] HistorialEstadoPedidoMS { get; set; }
+}

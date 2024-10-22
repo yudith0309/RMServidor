@@ -24,3 +24,14 @@ public class ClienteMS
     {
     }
 }
+
+public class ClienteMSLista
+{
+    public ClienteMSLista() { }
+
+    public ClienteMSLista(ClienteMS[] clienteMS)
+    {
+        ClienteMS = clienteMS;
+    }
+    public ClienteMS[] ClienteMS { get; set; }
+}

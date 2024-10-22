@@ -22,3 +22,14 @@ public class ProveedorMS
     {
     }
 }
+
+public class ProveedorMSLista
+{
+    public ProveedorMSLista() { }
+
+    public ProveedorMSLista(ProveedorMS[] proveedorMS)
+    {
+        ProveedorMS = proveedorMS;
+    }
+    public ProveedorMS[] ProveedorMS { get; set; }
+}

@@ -20,3 +20,14 @@ public class InventariosMS
     {
     }
 }
+
+public class InventariosMSLista
+{
+    public InventariosMSLista() { }
+
+    public InventariosMSLista(InventariosMS[] inventariosMS)
+    {
+        InventariosMS = inventariosMS;
+    }
+    public InventariosMS[] InventariosMS { get; set; }
+}
