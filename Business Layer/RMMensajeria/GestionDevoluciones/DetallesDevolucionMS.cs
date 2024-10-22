@@ -24,3 +24,14 @@ public class DetallesDevolucionMS
     {
     }
 }
+public class DetallesDevolucionMSLista
+{
+    public DetallesDevolucionMSLista() { }
+
+    public DetallesDevolucionMSLista(DetallesDevolucionMS[] detallesDevolucionMS)
+    {
+        DetallesDevolucionMS = detallesDevolucionMS;
+    }
+    public DetallesDevolucionMS[] DetallesDevolucionMS { get; set; }
+}
+

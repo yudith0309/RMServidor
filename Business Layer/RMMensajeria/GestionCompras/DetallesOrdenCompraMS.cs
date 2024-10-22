@@ -26,3 +26,14 @@ public class DetallesOrdenCompraMS
     {
     }
 }
+
+public class DetallesOrdenCompraMSLista
+{
+    public DetallesOrdenCompraMSLista() { }
+
+    public DetallesOrdenCompraMSLista(DetallesOrdenCompraMS[] detallesOrdenCompraMS)
+    {
+        DetallesOrdenCompraMS = detallesOrdenCompraMS;
+    }
+    public DetallesOrdenCompraMS[] DetallesOrdenCompraMS { get; set; }
+}

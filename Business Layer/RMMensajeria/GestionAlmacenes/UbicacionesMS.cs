@@ -26,3 +26,14 @@ public class UbicacionesMS
     {
     }
 }
+
+public class UbicacionesMSLista
+{
+    public UbicacionesMSLista() { }
+
+    public UbicacionesMSLista(UbicacionesMS[] ubicacionesMS)
+    {
+        UbicacionesMS = UbicacionesMS;
+    }
+    public UbicacionesMS[] UbicacionesMS { get; set; }
+}

@@ -26,3 +26,14 @@ public class OrdenesTransferenciaInternaMS
     {
     }
 }
+
+public class OrdenesTransferenciaInternaMSLista
+{
+    public OrdenesTransferenciaInternaMSLista() { }
+
+    public OrdenesTransferenciaInternaMSLista(OrdenesTransferenciaInternaMS[] ordenesTransferenciaInternaMS)
+    {
+        OrdenesTransferenciaInternaMS = ordenesTransferenciaInternaMS;
+    }
+    public OrdenesTransferenciaInternaMS[] OrdenesTransferenciaInternaMS { get; set; }
+}

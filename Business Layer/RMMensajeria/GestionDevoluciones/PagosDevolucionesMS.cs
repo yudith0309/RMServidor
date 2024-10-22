@@ -26,3 +26,15 @@ public class PagosDevolucionesMS
     {
     }
 }
+
+public class PagosDevolucionesMSLista
+{
+    public PagosDevolucionesMSLista() { }
+
+    public PagosDevolucionesMSLista(PagosDevolucionesMS[] pagosDevolucionesMS)
+    {
+        PagosDevolucionesMS = pagosDevolucionesMS;
+    }
+    public PagosDevolucionesMS[] PagosDevolucionesMS { get; set; }
+}
+

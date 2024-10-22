@@ -24,3 +24,14 @@ public class ZonasAlmacenMS
     {
     }
 }
+
+public class ZonasAlmacenMSLista
+{
+    public ZonasAlmacenMSLista() { }
+
+    public ZonasAlmacenMSLista(ZonasAlmacenMS[] zonasAlmacenMS)
+    {
+        ZonasAlmacenMS = zonasAlmacenMS;
+    }
+    public ZonasAlmacenMS[] ZonasAlmacenMS { get; set; }
+}

@@ -21,3 +21,14 @@ public class HistorialEstadoDevolucionMS
     {
     }
 }
+
+public class HistorialEstadoDevolucionMSLista
+{
+    public HistorialEstadoDevolucionMSLista() { }
+
+    public HistorialEstadoDevolucionMSLista(HistorialEstadoDevolucionMS[] historialEstadoDevolucionMS)
+    {
+        HistorialEstadoDevolucionMS = historialEstadoDevolucionMS;
+    }
+    public HistorialEstadoDevolucionMS[] HistorialEstadoDevolucionMS { get; set; }
+}

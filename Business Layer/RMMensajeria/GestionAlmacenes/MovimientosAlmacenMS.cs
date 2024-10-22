@@ -28,3 +28,14 @@ public class MovimientosAlmacenMS
     {
     }
 }
+
+public class MovimientosAlmacenMSLista
+{
+    public MovimientosAlmacenMSLista() { }
+
+    public MovimientosAlmacenMSLista(MovimientosAlmacenMS[] movimientosAlmacenMS)
+    {
+        MovimientosAlmacenMS = movimientosAlmacenMS;
+    }
+    public MovimientosAlmacenMS[] MovimientosAlmacenMS { get; set; }
+}

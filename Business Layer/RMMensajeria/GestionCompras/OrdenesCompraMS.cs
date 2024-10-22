@@ -26,3 +26,14 @@ public class OrdenesCompraMS
     {
     }
 }
+
+public class OrdenesCompraMSLista
+{
+    public OrdenesCompraMSLista() { }
+
+    public OrdenesCompraMSLista(OrdenesCompraMS[] ordenesCompraMS)
+    {
+        OrdenesCompraMS = ordenesCompraMS;
+    }
+    public OrdenesCompraMS[] OrdenesCompraMS { get; set; }
+}

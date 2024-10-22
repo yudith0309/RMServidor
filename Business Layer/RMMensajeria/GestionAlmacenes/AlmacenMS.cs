@@ -20,3 +20,14 @@ public class AlmacenMS
     {
     }
 }
+
+public class AlmacenMSLista
+{
+    public AlmacenMSLista() { }
+
+    public AlmacenMSLista(AlmacenMS[] almacenMS)
+    {
+        AlmacenMS = almacenMS;
+    }
+    public AlmacenMS[] AlmacenMS { get; set; }
+}

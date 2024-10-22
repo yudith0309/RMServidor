@@ -20,3 +20,14 @@ public class ItemDeOrdenDeCompraMS
     {
     }
 }
+
+public class ItemDeOrdenDeCompraMSLista
+{
+    public ItemDeOrdenDeCompraMSLista() { }
+
+    public ItemDeOrdenDeCompraMSLista(ItemDeOrdenDeCompraMS[] itemDeOrdenDeCompraMS)
+    {
+        ItemDeOrdenDeCompraMS = itemDeOrdenDeCompraMS;
+    }
+    public ItemDeOrdenDeCompraMS[] ItemDeOrdenDeCompraMS { get; set; }
+}
