@@ -36,29 +36,7 @@ public class ProductoCmd : IProductoCmd
                 nuevoProducto.UnidadMedida,
                 nuevoProducto.FechaCreacion,
                 nuevoProducto.FechaActualizacion);
-    }
-
-    public ProductoMS ActualizaProducto(ProductoME mensajeEntrada)
-    {
-        var nuevoProducto = 
-            _gestorId
-            .Resuelve<IProductoActor>()
-            .ProcesaActualizar(mensajeEntrada.ProductoID,
-                               mensajeEntrada.CodigoProducto,
-                               mensajeEntrada.NombreProducto,
-                               mensajeEntrada.Descripcion,
-                               mensajeEntrada.UnidadMedida,
-                               mensajeEntrada.FechaCreacion,
-                               mensajeEntrada.FechaActualizacion);
-       
-        return new ProductoMS(nuevoProducto.ProductoID,
-                              nuevoProducto.CodigoProducto,
-                              nuevoProducto.NombreProducto,
-                              nuevoProducto.Descripcion,
-                              nuevoProducto.UnidadMedida,
-                              nuevoProducto.FechaCreacion,
-                              nuevoProducto.FechaActualizacion);
-    }
+    }   
 
     public ProductoMS EliminarProducto(ProductoME mensajeEntrada)
     {
@@ -68,6 +46,28 @@ public class ProductoCmd : IProductoCmd
         productoActor.ProcesaEliminar(producto);
 
         return new ProductoMS();
+    }
+
+    public ProductoMS ActualizaProducto(ProductoME mensajeEntrada)
+    {
+        var nuevoProducto =
+            _gestorId
+            .Resuelve<IProductoActor>()
+            .ProcesaActualizar(mensajeEntrada.ProductoID,
+                               mensajeEntrada.CodigoProducto,
+                               mensajeEntrada.NombreProducto,
+                               mensajeEntrada.Descripcion,
+                               mensajeEntrada.UnidadMedida,
+                               mensajeEntrada.FechaCreacion,
+                               mensajeEntrada.FechaActualizacion);
+
+        return new ProductoMS(nuevoProducto.ProductoID,
+                              nuevoProducto.CodigoProducto,
+                              nuevoProducto.NombreProducto,
+                              nuevoProducto.Descripcion,
+                              nuevoProducto.UnidadMedida,
+                              nuevoProducto.FechaCreacion,
+                              nuevoProducto.FechaActualizacion);
     }
 
 

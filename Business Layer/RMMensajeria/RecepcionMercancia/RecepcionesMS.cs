@@ -9,7 +9,7 @@ public class RecepcionesMS
     public string Estado { get; set; }
     public DateTime FechaCreacion { get; set; }
     public DateTime FechaActualizacion { get; set; }
-
+    public RecepcionesMS() { }
     public RecepcionesMS(Guid recepcionID, Guid ordenDeCompraID, DateTime fechaRecepcion, string recibidoPor, string estado, DateTime fechaCreacion, DateTime fechaActualizacion)
     {
         RecepcionID = recepcionID;
@@ -19,8 +19,16 @@ public class RecepcionesMS
         Estado = estado;
         FechaCreacion = fechaCreacion;
         FechaActualizacion = fechaActualizacion;
-    }
-    public RecepcionesMS()
+    }   
+
+}
+public class RecepcionesMSLista
+{
+    public RecepcionesMSLista() { }
+
+    public RecepcionesMSLista(RecepcionesMS[] recepcionesMS)
     {
+        RecepcionesMS = recepcionesMS;
     }
+    public RecepcionesMS[] RecepcionesMS { get; set; }
 }
