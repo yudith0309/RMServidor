@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccessLayer\RMCore.Interfaces\GestionInventarios.Interfaces\GestionInventarios.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
     <ProjectReference Include="..\..\RMApplication.Interfaces\GestionInventarios.Query.Interfaces\GestionInventarios.Query.Interfaces.csproj" />
     <ProjectReference Include="..\..\RMMensajeria\RMMensajeria.csproj" />
   </ItemGroup>
