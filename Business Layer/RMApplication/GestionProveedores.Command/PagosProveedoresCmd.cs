@@ -43,10 +43,10 @@ public class PagosProveedoresCmd: IPagosProveedoresCmd
 
     public PagosProveedoresMS EliminarPagosProveedor(PagosProveedoresME mensajeEntrada)
     {
-        var PagosProveedorActor = _gestorId.Resuelve<IPagosProveedoresActor>();
-        var PagosProveedor = _gestorId.Resuelve<IPagosProveedoresActor>().ObtenerPagosProveedoresPorId(mensajeEntrada.PagoProveedorID);
+        var pagosProveedorActor = _gestorId.Resuelve<IPagosProveedoresActor>();
+        var pagosProveedor = _gestorId.Resuelve<IPagosProveedoresActor>().ObtenerPagosProveedoresPorId(mensajeEntrada.PagoProveedorID);
 
-        PagosProveedorActor.ProcesaEliminar(PagosProveedor);
+        pagosProveedorActor.ProcesaEliminar(pagosProveedor);
 
         return new PagosProveedoresMS();
     }

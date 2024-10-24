@@ -39,10 +39,10 @@ public class ProveedorCmd : IProveedorCmd
 
     public ProveedorMS EliminarProveedor(ProveedorME mensajeEntrada)
     {
-        var ProveedorActor = _gestorId.Resuelve<IProveedorActor>();
-        var Proveedor = _gestorId.Resuelve<IProveedorActor>().ObtenerProveedorPorId(mensajeEntrada.ProveedorID);
+        var proveedorActor = _gestorId.Resuelve<IProveedorActor>();
+        var proveedor = _gestorId.Resuelve<IProveedorActor>().ObtenerProveedorPorId(mensajeEntrada.ProveedorID);
 
-        ProveedorActor.ProcesaEliminar(Proveedor);
+        proveedorActor.ProcesaEliminar(proveedor);
 
         return new ProveedorMS();
     }
