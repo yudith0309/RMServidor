@@ -6,7 +6,7 @@ using Utilidades;
 
 namespace TransporteEnvios.Command;
 
-public class CostosEnvioCmd: ICostosEnvioCmd
+public class CostosEnvioCmd : ICostosEnvioCmd
 {
     private readonly IGestorId _gestorId;
     public CostosEnvioCmd(IGestorId gestorId)

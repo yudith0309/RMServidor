@@ -6,7 +6,7 @@ using Utilidades;
 
 namespace TransporteEnvios.Command;
 
-public class OrdenesEnvioCmd: IOrdenesEnvioCmd
+public class OrdenesEnvioCmd : IOrdenesEnvioCmd
 {
     private readonly IGestorId _gestorId;
     public OrdenesEnvioCmd(IGestorId gestorId)
@@ -16,7 +16,7 @@ public class OrdenesEnvioCmd: IOrdenesEnvioCmd
     public OrdenesEnvioMS NuevoOrdenesEnvio(OrdenesEnvioME mensajeEntrada)
     {
 
-        var nuevoCosto =
+        var nuevoOrden =
             new OrdenesEnvio(mensajeEntrada.OrdenEnvioID,
                              mensajeEntrada.PedidoID,
                              mensajeEntrada.TransportistaID,
@@ -27,18 +27,18 @@ public class OrdenesEnvioCmd: IOrdenesEnvioCmd
                              mensajeEntrada.CostoEnvio,
                              mensajeEntrada.FechaActualizacion);
 
-        _gestorId.Resuelve<IOrdenesEnvioActor>().ProcesaInsertar(nuevoCosto);
+        _gestorId.Resuelve<IOrdenesEnvioActor>().ProcesaInsertar(nuevoOrden);
 
         return new OrdenesEnvioMS
-               (nuevoCosto.OrdenEnvioID,
-                nuevoCosto.PedidoID,
-                nuevoCosto.TransportistaID,
-                nuevoCosto.FechaCreacion,
-                nuevoCosto.Estado,
-                nuevoCosto.FechaEnvio,
-                nuevoCosto.FechaEntregaEstimada,
-                nuevoCosto.CostoEnvio,
-                nuevoCosto.FechaCreacion);
+               (nuevoOrden.OrdenEnvioID,
+                nuevoOrden.PedidoID,
+                nuevoOrden.TransportistaID,
+                nuevoOrden.FechaCreacion,
+                nuevoOrden.Estado,
+                nuevoOrden.FechaEnvio,
+                nuevoOrden.FechaEntregaEstimada,
+                nuevoOrden.CostoEnvio,
+                nuevoOrden.FechaCreacion);
     }
 
     public OrdenesEnvioMS EliminarOrdenesEnvio(OrdenesEnvioME mensajeEntrada)

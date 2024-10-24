@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\DataAccessLayer\RMCore.Interfaces\TransporteEnvios.Interfaces\TransporteEnvios.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\DataAccessLayer\RMEntidades\TransporteEnvios.Entidad\TransporteEnvios.Entidad.csproj" />
     <ProjectReference Include="..\..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
     <ProjectReference Include="..\..\RMApplication.Interfaces\TransporteEnvios.Command.Interfaces\TransporteEnvios.Command.Interfaces.csproj" />
     <ProjectReference Include="..\..\RMMensajeria\RMMensajeria.csproj" />
