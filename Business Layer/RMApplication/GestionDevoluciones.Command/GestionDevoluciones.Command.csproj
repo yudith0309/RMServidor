@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccessLayer\RMCore.Interfaces\GestionDevoluciones.Interfaces\GestionDevoluciones.Interfaces.csproj" />
+    <ProjectReference Include="..\..\..\InfraestructureLayer\Utilidades\Utilidades.csproj" />
     <ProjectReference Include="..\..\RMApplication.Interfaces\GestionDevoluciones.Command.Interfaces\GestionDevoluciones.Command.Interfaces.csproj" />
     <ProjectReference Include="..\..\RMMensajeria\RMMensajeria.csproj" />
   </ItemGroup>
