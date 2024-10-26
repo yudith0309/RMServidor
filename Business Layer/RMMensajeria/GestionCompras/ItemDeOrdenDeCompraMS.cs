@@ -8,7 +8,7 @@ public class ItemDeOrdenDeCompraMS
     public int CantidadOrdenada { get; set; }
     public decimal PrecioUnitario { get; set; }
 
-    public ItemDeOrdenDeCompraMS(Guid itemDeOrdenDeCompraID, Guid ordenDeCompraID, Guid productoID, int cantidadOrdenada, decimal precioUnitario, decimal precioTotal)
+    public ItemDeOrdenDeCompraMS(Guid itemDeOrdenDeCompraID, Guid ordenDeCompraID, Guid productoID, int cantidadOrdenada, decimal precioUnitario)
     {
         ItemDeOrdenDeCompraID = itemDeOrdenDeCompraID;
         OrdenDeCompraID = ordenDeCompraID;
@@ -16,6 +16,7 @@ public class ItemDeOrdenDeCompraMS
         CantidadOrdenada = cantidadOrdenada;
         PrecioUnitario = precioUnitario;
     }
+
     public ItemDeOrdenDeCompraMS()
     {
     }
